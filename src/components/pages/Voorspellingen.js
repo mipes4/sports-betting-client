@@ -13,8 +13,8 @@ import { appLoading } from "../../store/appState/actions";
 export default function Voorspellingen() {
   // const dispatch = useDispatch();
   // const matches = useSelector(selectMatches);
-  // const token = useSelector(selectToken);
-  // const history = useHistory();
+  const token = useSelector(selectToken);
+  const history = useHistory();
   // const user = useSelector(selectUser);
 
   // useEffect(() => {
@@ -22,11 +22,11 @@ export default function Voorspellingen() {
   //   dispatch(fetchScores());
   // }, [dispatch, user.id]);
 
-  // useEffect(() => {
-  //   if (token === null) {
-  //     history.push('/login');
-  //   }
-  // }, [token, history]);
+  useEffect(() => {
+    if (token === null) {
+      history.push("/login");
+    }
+  }, [token, history]);
 
   // if (!matches) return dispatch(appLoading());
 

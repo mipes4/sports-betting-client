@@ -14,8 +14,8 @@ export default function SignUp() {
   const history = useHistory();
 
   useEffect(() => {
-    if (token !== null) {
-      history.push("/");
+    if (token === null) {
+      history.push("/login");
     }
   }, [token, history]);
 
