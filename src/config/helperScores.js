@@ -28,10 +28,10 @@ export const calculateScore = (results, prediction, scores) => {
 
 const whoWins = (homeTeam, awayTeam) => {
   if (homeTeam > awayTeam) {
-    return "homeWins";
+    return 'homeWins';
   } else if (homeTeam < awayTeam) {
-    return "awayWins";
+    return 'awayWins';
   } else {
-    return "draw";
+    return 'draw';
   }
 };

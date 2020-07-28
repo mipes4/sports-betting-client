@@ -1,15 +1,14 @@
-import React, { useEffect } from "react";
-import MatchCard from "../matches/MatchCard";
-import { fetchMatchesAndPredictions } from "../../store/matches/actions";
-import { useDispatch, useSelector } from "react-redux";
-import { selectMatches } from "../../store/matches/selectors";
-import { selectUser } from "../../store/user/selectors";
-import { selectToken } from "../../store/user/selectors";
-import { fetchScores } from "../../store/configs/actions";
-import { Container, Table } from "react-bootstrap";
-import { useHistory } from "react-router-dom";
-import { appLoading } from "../../store/appState/actions";
-import { getUserWithStoredToken } from "../../store/user/actions";
+import React, { useEffect } from 'react';
+import MatchEntry from '../matches/MatchEntry';
+import { fetchMatchesAndPredictions } from '../../store/matches/actions';
+import { useDispatch, useSelector } from 'react-redux';
+import { selectMatches } from '../../store/matches/selectors';
+import { selectUser } from '../../store/user/selectors';
+import { selectToken } from '../../store/user/selectors';
+import { fetchScores } from '../../store/configs/actions';
+import { Container, Table } from 'react-bootstrap';
+import { useHistory } from 'react-router-dom';
+import { appLoading } from '../../store/appState/actions';
 
 export default function Voorspellingen() {
   const dispatch = useDispatch();
@@ -21,11 +20,11 @@ export default function Voorspellingen() {
   useEffect(() => {
     dispatch(fetchMatchesAndPredictions(user.id));
     dispatch(fetchScores());
-  }, [dispatch]);
+  }, [dispatch, user.id]);
 
   useEffect(() => {
     if (token === null) {
-      history.push("/login");
+      history.push('/login');
     }
   }, [token, history]);
 
@@ -39,7 +38,7 @@ export default function Voorspellingen() {
 
   const matchesToMatchCard = sortedMatches.map((match) => {
     return (
-      <MatchCard
+      <MatchEntry
         key={match.id}
         fixtureId={match.id}
         homeTeamId={match.homeTeamId}
@@ -63,7 +62,7 @@ export default function Voorspellingen() {
       <h1>Voorspellingen</h1>
 
       <Table
-        style={{ fontSize: 12, textAlign: "left", verticalAlign: "middle" }}
+        style={{ fontSize: 12, textAlign: 'left', verticalAlign: 'middle' }}
         striped
         bordered
         hover
@@ -71,7 +70,7 @@ export default function Voorspellingen() {
         size="sm"
         responsive="xl"
       >
-        <tbody> {matchesToMatchCard}</tbody>
+        <tbody>{matchesToMatchCard}</tbody>
       </Table>
     </Container>
   );

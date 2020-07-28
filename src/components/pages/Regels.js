@@ -1,18 +1,16 @@
-import React, { useEffect } from "react";
-import { Card, Accordion, Button, Container } from "react-bootstrap";
-import { useSelector, useDispatch } from "react-redux";
-import { selectToken } from "../../store/user/selectors";
-import { useHistory } from "react-router-dom";
-import { getUserWithStoredToken } from "../../store/user/actions";
+import React, { useEffect } from 'react';
+import { Card, Accordion, Button, Container } from 'react-bootstrap';
+import { useSelector } from 'react-redux';
+import { selectToken } from '../../store/user/selectors';
+import { useHistory } from 'react-router-dom';
 
 export default function Regels() {
   const token = useSelector(selectToken);
   const history = useHistory();
-  const dispatch = useDispatch();
 
   useEffect(() => {
     if (token === null) {
-      history.push("/login");
+      history.push('/login');
     }
   }, [token, history]);
 
