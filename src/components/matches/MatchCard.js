@@ -95,7 +95,7 @@ export default function MatchCard(props) {
                       : false
                   }
                 />
-                &nbsp;&nbsp;-&nbsp;&nbsp;
+                <span>&nbsp;&nbsp;-&nbsp;&nbsp;</span>
                 <Form.Control
                   size="sm"
                   style={{ width: '60px' }}
