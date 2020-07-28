@@ -1,28 +1,30 @@
 import React, { useState, useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { useHistory, Link } from "react-router-dom";
 import { Form, Container, Button, Col } from "react-bootstrap";
 import { signUp } from "../../store/user/actions";
 import { selectToken, selectUser } from "../../store/user/selectors";
-import { useDispatch, useSelector } from "react-redux";
-import { useHistory, Link } from "react-router-dom";
 
 export default function SignUp() {
+  const history = useHistory();
+  const dispatch = useDispatch();
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const dispatch = useDispatch();
   const token = useSelector(selectToken);
   const isUserAdmin = useSelector(selectUser).admin;
-  const history = useHistory();
 
   useEffect(() => {
     if (token === null || !isUserAdmin) {
       history.push("/login");
     }
-  }, [token, history]);
+  }, [token, isUserAdmin, history]);
 
   function submitForm(event) {
     event.preventDefault();
 
+    // Which data is needed to sign up a new user?
+    // Check model/table in DB
     dispatch(signUp(name, email, password));
 
     setEmail("");
