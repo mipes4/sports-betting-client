@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import MatchCard from '../matches/MatchCard';
+import MatchEntry from '../matches/MatchEntry';
 import { fetchMatchesAndPredictions } from '../../store/matches/actions';
 import { useDispatch, useSelector } from 'react-redux';
 import { selectMatches } from '../../store/matches/selectors';
@@ -38,7 +38,7 @@ export default function Voorspellingen() {
 
   const matchesToMatchCard = sortedMatches.map((match) => {
     return (
-      <MatchCard
+      <MatchEntry
         key={match.id}
         fixtureId={match.id}
         homeTeamId={match.homeTeamId}

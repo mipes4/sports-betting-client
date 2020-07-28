@@ -12,7 +12,7 @@ import { selectScores } from '../../store/configs/selectors';
 import { calculateScore } from '../../config/helperScores';
 import { selectUser } from '../../store/user/selectors';
 
-export default function MatchCard(props) {
+export default function MatchEntry(props) {
   const dispatch = useDispatch();
   const [goalsHomeTeam, setGoalsHomeTeam] = useState();
   const [goalsAwayTeam, setGoalsAwayTeam] = useState();
