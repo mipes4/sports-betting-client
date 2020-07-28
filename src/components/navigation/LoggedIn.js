@@ -1,9 +1,11 @@
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { logOut } from "../../store/user/actions";
-import { Button, NavDropdown, Nav } from "react-bootstrap";
-import NavbarItem from "./NavbarItem";
 import { selectUser } from "../../store/user/selectors";
+import { logOut } from "../../store/user/actions";
+// components
+import NavbarItem from "./NavbarItem";
+// styles
+import { Button, NavDropdown, Nav } from "react-bootstrap";
 
 export default function LoggedIn() {
   const dispatch = useDispatch();
@@ -12,7 +14,7 @@ export default function LoggedIn() {
   return (
     <>
       <Nav variant="pills" style={{ width: "100%" }} fill>
-        <NavbarItem path={`/voorspellingen`} linkText="Voorspellingen" />
+        <NavbarItem path="/voorspellingen" linkText="Voorspellingen" />
         <NavbarItem path="/regels" linkText="Regels" />
       </Nav>
       <Nav>

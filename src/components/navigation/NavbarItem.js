@@ -1,6 +1,7 @@
 import React from "react";
-import { Nav } from "react-bootstrap";
 import { NavLink } from "react-router-dom";
+// styles
+import { Nav } from "react-bootstrap";
 
 export default function NavbarItem(props) {
   return (
