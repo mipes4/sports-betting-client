@@ -9,13 +9,11 @@ import LoggedOut from "./LoggedOut";
 export default function NavigationComponent() {
   const token = useSelector(selectToken);
 
-  const loginLogoutControls = token ? <LoggedIn /> : <LoggedOut />;
+  const loginLogoutControls = !token ? null : <LoggedOut />;
 
   return (
     <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
-      <Navbar.Brand as={NavLink} to="/">
-        Sports Betting
-      </Navbar.Brand>
+      <Navbar.Brand>Sports Betting</Navbar.Brand>
       <Navbar.Toggle aria-controls="responsive-navbar-nav" />
       <Navbar.Collapse id="responsive-navbar-nav">
         {loginLogoutControls}
