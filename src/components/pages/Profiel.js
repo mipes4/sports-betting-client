@@ -1,25 +1,26 @@
-import React, { useEffect, useState } from 'react';
-import { selectToken, selectUser } from '../../store/user/selectors';
-import { useSelector, useDispatch } from 'react-redux';
-import { useHistory } from 'react-router-dom';
-import { changeUser } from '../../store/user/actions';
-import { Container, Form, Col, Button, Row } from 'react-bootstrap';
+import React, { useEffect, useState } from "react";
+import { useSelector, useDispatch } from "react-redux";
+import { useHistory } from "react-router-dom";
+import { selectToken, selectUser } from "../../store/user/selectors";
+import { changeUser } from "../../store/user/actions";
+// styles
+import { Container, Form, Col, Button, Row } from "react-bootstrap";
 
 export default function Profiel() {
+  const history = useHistory();
+  const dispatch = useDispatch();
   const [frontName, setFrontName] = useState();
   const [lastName, setLastName] = useState();
   const [userName, setUserName] = useState();
   const [phone, setPhone] = useState();
   const [totaalToto, setTotaalToto] = useState();
-  const [password, setPassword] = useState('');
+  const [password, setPassword] = useState("");
   const token = useSelector(selectToken);
-  const history = useHistory();
   const user = useSelector(selectUser);
-  const dispatch = useDispatch();
 
   useEffect(() => {
     if (token === null) {
-      history.push('/login');
+      history.push("/login");
     }
   }, [token, history]);
 
@@ -39,7 +40,7 @@ export default function Profiel() {
         // password
       )
     );
-    setPassword('');
+    setPassword("");
   }
 
   return (
@@ -47,7 +48,7 @@ export default function Profiel() {
       <h1 className="mt-5 mb-5">Profiel</h1>
       <Form as={Col} md={{ span: 6, offset: 3 }} className="mt-5">
         <Form.Group as={Row} controlId="formHorizontalFrontName">
-          <Form.Label style={{ textAlign: 'left' }} column sm={3}>
+          <Form.Label style={{ textAlign: "left" }} column sm={3}>
             Voornaam
           </Form.Label>
           <Col sm={8}>
@@ -59,7 +60,7 @@ export default function Profiel() {
           </Col>
         </Form.Group>
         <Form.Group as={Row} controlId="formBasicLastName">
-          <Form.Label style={{ textAlign: 'left' }} column sm={3}>
+          <Form.Label style={{ textAlign: "left" }} column sm={3}>
             Achternaam
           </Form.Label>
           <Col sm={8}>
@@ -71,7 +72,7 @@ export default function Profiel() {
           </Col>
         </Form.Group>
         <Form.Group as={Row} controlId="formBasicUser">
-          <Form.Label style={{ textAlign: 'left' }} column sm={3}>
+          <Form.Label style={{ textAlign: "left" }} column sm={3}>
             Username
           </Form.Label>
           <Col sm={8}>
@@ -84,7 +85,7 @@ export default function Profiel() {
           </Col>
         </Form.Group>
         <Form.Group as={Row} controlId="formBasicEmail">
-          <Form.Label style={{ textAlign: 'left' }} column sm={3}>
+          <Form.Label style={{ textAlign: "left" }} column sm={3}>
             Emailadres
           </Form.Label>
           <Col sm={8}>
@@ -92,7 +93,7 @@ export default function Profiel() {
           </Col>
         </Form.Group>
         <Form.Group as={Row} controlId="formBasicPhone">
-          <Form.Label style={{ textAlign: 'left' }} column sm={3}>
+          <Form.Label style={{ textAlign: "left" }} column sm={3}>
             Telefoonnummer
           </Form.Label>
           <Col sm={8}>
@@ -116,7 +117,7 @@ export default function Profiel() {
         </Form.Group>
 
         <Form.Group as={Row} controlId="formBasicPassword">
-          <Form.Label style={{ textAlign: 'left' }} column sm={3}>
+          <Form.Label style={{ textAlign: "left" }} column sm={3}>
             Wachtwoord
           </Form.Label>
           <Col sm={8}>
