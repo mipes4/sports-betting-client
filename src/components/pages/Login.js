@@ -1,40 +1,36 @@
-import React, { useState, useEffect } from 'react';
-import Form from 'react-bootstrap/Form';
-import Container from 'react-bootstrap/Container';
-import Button from 'react-bootstrap/Button';
-import { login } from '../../store/user/actions';
-import { selectToken } from '../../store/user/selectors';
-import { useDispatch, useSelector } from 'react-redux';
-import { useHistory } from 'react-router-dom';
-import { Col } from 'react-bootstrap';
+import React, { useState, useEffect } from "react";
+import Form from "react-bootstrap/Form";
+import Container from "react-bootstrap/Container";
+import Button from "react-bootstrap/Button";
+import { login } from "../../store/user/actions";
+import { selectToken } from "../../store/user/selectors";
+import { useDispatch, useSelector } from "react-redux";
+import { useHistory } from "react-router-dom";
+import { Col } from "react-bootstrap";
 
 export default function Login() {
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
   const dispatch = useDispatch();
   const token = useSelector(selectToken);
   const history = useHistory();
 
   useEffect(() => {
     if (token !== null) {
-      history.push('/');
+      history.push("/");
     }
   }, [token, history]);
 
   function submitForm(event) {
-    // console.log("hi");
     event.preventDefault();
 
     dispatch(login(email, password));
-
-    setEmail('');
-    setPassword('');
+    setEmail("");
+    setPassword("");
   }
 
   return (
     <Container>
-      <h1 className="mt-5 mb-5">Login</h1>
-
       <Form as={Col} md={{ span: 6, offset: 3 }} className="mt-5">
         <Form.Group controlId="formBasicEmail">
           <Form.Label>Emailadres</Form.Label>
