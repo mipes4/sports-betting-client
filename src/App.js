@@ -1,9 +1,10 @@
 import React, { useEffect } from "react";
-// import "./bootstrap.min.css";
-import "./App.css";
 import { Switch, Route } from "react-router-dom";
-
-// import Home from "./components/pages/Home";
+import { useDispatch, useSelector } from "react-redux";
+import { selectAppLoading } from "./store/appState/selectors";
+import { getUserWithStoredToken } from "./store/user/actions";
+// components
+import Home from "./components/pages/Home";
 import Voorspellingen from "./components/pages/Voorspellingen";
 import Regels from "./components/pages/Regels";
 import SignUp from "./components/pages/SignUp";
@@ -13,9 +14,9 @@ import Admin from "./components/pages/Admin";
 import NavigationComponent from "./components/navigation/NavigationComponent";
 import MessageBox from "./components/messageBox/MessageBox";
 import Loading from "./components/loading/Loading";
-import { useDispatch, useSelector } from "react-redux";
-import { selectAppLoading } from "./store/appState/selectors";
-import { getUserWithStoredToken } from "./store/user/actions";
+// styles
+// import "./bootstrap.min.css";
+import "./App.css";
 
 function App() {
   const dispatch = useDispatch();
@@ -31,7 +32,7 @@ function App() {
       <MessageBox />
       {isLoading ? <Loading /> : null}
       <Switch>
-        <Route exact path="/" component={Voorspellingen} />
+        <Route exact path="/" component={Home} />
         <Route path="/signup" component={SignUp} />
         <Route path="/login" component={Login} />
         <Route path="/voorspellingen" component={Voorspellingen} />
