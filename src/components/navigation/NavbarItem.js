@@ -7,7 +7,7 @@ export default function NavbarItem(props) {
   return (
     <div>
       <Nav.Item>
-        <Nav.Link as={NavLink} to={props.path}>
+        <Nav.Link as={NavLink} exact={props.exact} to={props.path}>
           {props.linkText}
         </Nav.Link>
       </Nav.Item>

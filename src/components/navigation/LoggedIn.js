@@ -14,6 +14,7 @@ export default function LoggedIn() {
   return (
     <>
       <Nav variant="pills" style={{ width: "100%" }} fill>
+        <NavbarItem path="/" exact={true} linkText="Home" />
         <NavbarItem path="/voorspellingen" linkText="Voorspellingen" />
         <NavbarItem path="/regels" linkText="Regels" />
       </Nav>
