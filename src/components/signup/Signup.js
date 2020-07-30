@@ -1,24 +1,15 @@
-import React, { useState, useEffect } from "react";
-import { useDispatch, useSelector } from "react-redux";
+import React, { useState } from "react";
+import { useDispatch } from "react-redux";
 import { useHistory, Link } from "react-router-dom";
 import { Form, Container, Button, Col } from "react-bootstrap";
 import { signUp } from "../../store/user/actions";
 import { selectToken, selectUser } from "../../store/user/selectors";
 
 export default function SignUp() {
-  const history = useHistory();
   const dispatch = useDispatch();
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const token = useSelector(selectToken);
-  const isUserAdmin = useSelector(selectUser).admin;
-
-  // useEffect(() => {
-  //   if (token === null || !isUserAdmin) {
-  //     history.push("/login");
-  //   }
-  // }, [token, isUserAdmin, history]);
 
   function submitForm(event) {
     event.preventDefault();
@@ -75,7 +66,6 @@ export default function SignUp() {
             Sign up
           </Button>
         </Form.Group>
-        <Link to="/login">Click here to log in</Link>
       </Form>
     </Container>
   );
