@@ -5,6 +5,8 @@ import { selectToken } from "../../store/user/selectors";
 // Components
 import Sidebar from "../sidebar/Sidebar";
 import Signup from "../signup/Signup";
+// Styles
+import "../../scss/Admin.scss";
 
 export default function Admin() {
   const token = useSelector(selectToken);
@@ -17,13 +19,14 @@ export default function Admin() {
   }, [token, history]);
 
   return (
-    <div>
-      <div>
+    <div className="admin__container">
+      <div className="admin__container--sidebar">
         <Sidebar />
       </div>
 
-      <div></div>
-      <Signup />
+      <div className="admin__container--editor">
+        <Signup />
+      </div>
     </div>
   );
 }
