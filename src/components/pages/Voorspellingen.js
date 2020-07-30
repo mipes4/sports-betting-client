@@ -22,8 +22,6 @@ export default function Voorspellingen() {
     dispatch(fetchScores());
   }, [dispatch, user.id]);
 
-  console.log(user.id);
-
   useEffect(() => {
     if (token === null) {
       history.push("/login");
