@@ -19,11 +19,12 @@ export default function SignUp() {
 
     // Which data is needed to sign up a new user?
     // Check model/table in DB
-    dispatch(signUp(userName, firstName, lastName, email, password));
+    dispatch(signUp(userName, firstName, lastName, telNumber, email, password));
 
     setUserName("");
     setFirstName("");
     setLastName("");
+    setTelNumber("");
     setEmail("");
     setPassword("");
   }
@@ -82,7 +83,7 @@ export default function SignUp() {
           <Form.Control
             value={email}
             onChange={(event) => setEmail(event.target.value)}
-            type="email"
+            type="text"
             placeholder="Enter email address"
             required
           />

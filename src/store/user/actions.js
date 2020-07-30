@@ -34,12 +34,22 @@ export const updateUser = (data) => {
   };
 };
 
-export const signUp = (name, email, password) => {
+export const signUp = (
+  userName,
+  firstName,
+  lastName,
+  telNumber,
+  email,
+  password
+) => {
   return async (dispatch, getState) => {
     dispatch(appLoading());
     try {
       const response = await Axios.post(`${apiUrl}/signup`, {
-        name,
+        userName,
+        firstName,
+        lastName,
+        telNumber,
         email,
         password,
       });
