@@ -58,7 +58,7 @@ export default function MatchEntry(props) {
   );
 
   return (
-    <tr>
+    <tr style={{ color: props.color }}>
       <td style={{ verticalAlign: "middle" }}>{`${props.round} | ${moment
         .unix(props.eventTimestamp)
         .format("DD MMMM YYYY, h:mm uur")}`}</td>
