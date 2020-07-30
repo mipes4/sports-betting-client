@@ -2,6 +2,8 @@ import React, { useEffect } from "react";
 import { useSelector } from "react-redux";
 import { useHistory, Link } from "react-router-dom";
 import { selectToken } from "../../store/user/selectors";
+// Components
+import Sidebar from "../sidebar/Sidebar";
 
 export default function Admin() {
   const token = useSelector(selectToken);
@@ -15,7 +17,8 @@ export default function Admin() {
 
   return (
     <div>
-      <h1>Admin page</h1>
+      <Sidebar />
+
       <Link to="/signup" style={{ textAlign: "center" }}>
         Click here to sign up a new user
       </Link>
