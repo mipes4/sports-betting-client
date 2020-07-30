@@ -122,7 +122,7 @@ export const changeUser = (
   userId,
   username,
   email,
-  frontName,
+  firstName,
   lastName,
   phoneNumber,
   totaalToto
@@ -135,7 +135,7 @@ export const changeUser = (
         userId,
         username,
         email,
-        frontName,
+        firstName,
         lastName,
         phoneNumber,
         totaalToto,

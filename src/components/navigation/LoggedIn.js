@@ -15,7 +15,7 @@ export default function LoggedIn() {
     return (
       <Nav>
         <NavDropdown
-          title={`Welkom ${user.frontName}`}
+          title={`Welkom ${user.username}`}
           id="collasible-nav-dropdown"
         >
           <NavDropdown.Item href="/profiel">Profiel</NavDropdown.Item>
