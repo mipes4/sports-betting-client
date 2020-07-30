@@ -7,7 +7,10 @@ import { selectToken, selectUser } from "../../store/user/selectors";
 
 export default function SignUp() {
   const dispatch = useDispatch();
-  const [name, setName] = useState("");
+  const [userName, setUserName] = useState("");
+  const [firstName, setFirstName] = useState("");
+  const [lastName, setLastName] = useState("");
+  const [telNumber, setTelNumber] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
@@ -16,39 +19,73 @@ export default function SignUp() {
 
     // Which data is needed to sign up a new user?
     // Check model/table in DB
-    dispatch(signUp(name, email, password));
+    dispatch(signUp(userName, firstName, lastName, email, password));
 
+    setUserName("");
+    setFirstName("");
+    setLastName("");
     setEmail("");
     setPassword("");
-    setName("");
   }
 
   return (
     <Container>
       <Form as={Col} md={{ span: 6, offset: 3 }} className="mt-5">
-        <h1 className="mt-5 mb-5">Signup</h1>
+        <h3>Nieuw lid</h3>
+
         <Form.Group controlId="formBasicName">
-          <Form.Label>Name</Form.Label>
+          <Form.Label>Gebruikersnaam</Form.Label>
           <Form.Control
-            value={name}
-            onChange={(event) => setName(event.target.value)}
+            value={userName}
+            onChange={(event) => setUserName(event.target.value)}
             type="text"
-            placeholder="Enter name"
+            placeholder="Enter user name"
             required
           />
         </Form.Group>
+
+        <Form.Group controlId="formBasicName">
+          <Form.Label>Voornaam</Form.Label>
+          <Form.Control
+            value={firstName}
+            onChange={(event) => setFirstName(event.target.value)}
+            type="text"
+            placeholder="Enter firstname"
+            required
+          />
+        </Form.Group>
+
+        <Form.Group controlId="formBasicName">
+          <Form.Label>Achternaam</Form.Label>
+          <Form.Control
+            value={lastName}
+            onChange={(event) => setLastName(event.target.value)}
+            type="text"
+            placeholder="Enter lastname"
+            required
+          />
+        </Form.Group>
+
         <Form.Group controlId="formBasicEmail">
-          <Form.Label>Email address</Form.Label>
+          <Form.Label>Telefoonnummer</Form.Label>
+          <Form.Control
+            value={telNumber}
+            onChange={(event) => setTelNumber(event.target.value)}
+            type="email"
+            placeholder="Enter telephone number"
+            required
+          />
+        </Form.Group>
+
+        <Form.Group controlId="formBasicEmail">
+          <Form.Label>Emailadres</Form.Label>
           <Form.Control
             value={email}
             onChange={(event) => setEmail(event.target.value)}
             type="email"
-            placeholder="Enter email"
+            placeholder="Enter email address"
             required
           />
-          <Form.Text className="text-muted">
-            We'll never share your email with anyone else.
-          </Form.Text>
         </Form.Group>
 
         <Form.Group controlId="formBasicPassword">
@@ -61,9 +98,10 @@ export default function SignUp() {
             required
           />
         </Form.Group>
+
         <Form.Group className="mt-5">
           <Button variant="primary" type="submit" onClick={submitForm}>
-            Sign up
+            Aanmelden
           </Button>
         </Form.Group>
       </Form>
