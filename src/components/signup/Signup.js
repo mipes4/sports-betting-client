@@ -14,11 +14,11 @@ export default function SignUp() {
   const token = useSelector(selectToken);
   const isUserAdmin = useSelector(selectUser).admin;
 
-  useEffect(() => {
-    if (token === null || !isUserAdmin) {
-      history.push("/login");
-    }
-  }, [token, isUserAdmin, history]);
+  // useEffect(() => {
+  //   if (token === null || !isUserAdmin) {
+  //     history.push("/login");
+  //   }
+  // }, [token, isUserAdmin, history]);
 
   function submitForm(event) {
     event.preventDefault();
