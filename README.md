@@ -1,6 +1,6 @@
 # Sports betting app :soccer:
 
-[Live version of Sports betting app!](sports-betting.netlify.app)
+[Live version of Sports betting app will be here soon!]()
 
 ### Table of contents
 
@@ -14,32 +14,41 @@
 
 ## ABOUT :woman_cartwheeling:
 
-Hello! My name is Michelle and this is the portfolio project that I'm creating during my studies at [Codaisseur](https://github.com/Codaisseur). It's a sports betting app, specially made for my brother. It's purely for entertainment purposes for him and his friends during the Eredivisie league. The fun part is, I don't even like football/ soccer (don't want to start a discussion on the correct terminology of the sport :v:), I just love my brother (and I like to build apps).
+Hello! This sports betting app is a group project by some former classmates of Class 40 [@Codaisseur](https://github.com/Codaisseur). Just to keep working on our skills and because it's nice to work in a team. This group project is a extension of the Sports betting app that Michelle created for her [portfolio project](https://github.com/mipes4/sportsbetting_fe) which was already nice, but also had big potential to become great!
+
+It's a sports betting app purely for entertainment purposes for a group of friends during the Eredivisie league.
+
+Development team:
+
+- [Willem Verbuyst](https://github.com/willemverbuyst)
+- [Sowjanya Mekale](https://github.com/sowjanyam27)
+- [Michelle Pesch](https://github.com/mipes4)
 
 ## THE APP :soccer:
 
-The Sports betting app is an MVP, not a final version. The beginning of the web app is there, but there is so much more on my wishlist. Take a look at my [projectboard](https://github.com/users/mipes4/projects/1) to know what is going to be done in the future.
+The Sports betting app is still under construction. The beginning of the web app is there, but there is so much more on our wishlist. Take a look at our [projectboard](https://github.com/users/mipes4/projects/3) to know what is going to be done in the future.
 
 As a user of the Sports betting app you can create predictions on the matches in the upcoming rounds of the Eredivisie and earn points with (partially) right predictions. There is a winner per round and a winner of the entire season if a player opted in for the 'Totaaltoto'.
 
-- [Projectboard](https://github.com/users/mipes4/projects/1)
+- [Projectboard](https://github.com/users/mipes4/projects/3)
 - [Wireframe](https://sportsbetting-mp.netlify.app/)
-- [Back End Repo](https://github.com/mipes4/sportsbetting_be)
+- [Back End Repo](https://github.com/mipes4/sports-betting-server)
 
 ## GOALS :goal_net:
 
-- Practice full-stack development
-- Apply what I've learned so far
-- Explore some new territory on my own
-- Having an individual portfolio project that shows my technical abilities
-- Creating the app for a 'customer'
-  - Have an appointment to talk through the ideas
-  - Manage expectations
-  - Come up with a satisfying plan and wireframe
-  - Meet the expectations
 - Simulate working in the real world
   - Plan a project and work with user stories and tasks
-  - Work with version controle like a pro
+  - Work with version controle like a pro in a team
+  - Creating the app for a 'customer' (the brother of Michelle)
+    - Have an appointment to talk through the ideas
+    - Manage expectations
+    - Come up with a satisfying plan and wireframe
+    - Meet the expectations
+  - Practice process management with Agile
+- Practice full-stack development
+- Apply what we've learned so far
+- Explore some new territory on our own
+- Having an portfolio project that shows our technical abilities
 
 ## USER STORIES :bookmark_tabs:
 
