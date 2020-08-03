@@ -10,7 +10,7 @@ export default function TableMatches() {
   const matches = useSelector(selectMatches);
 
   const compareMatches = (matchA, matchB) => {
-    return matchB.eventTimeStamp - matchA.eventTimeStamp;
+    return matchA.eventTimeStamp - matchB.eventTimeStamp;
   };
   if (!matches) return dispatch(appLoading());
   const sortedMatches = [...matches].sort(compareMatches);
