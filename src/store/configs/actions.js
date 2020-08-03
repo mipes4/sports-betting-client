@@ -29,3 +29,14 @@ export function fetchRounds() {
     } catch (e) {}
   };
 }
+
+// updating prediction table to final score of the player.
+export function addTotalScore(id, totalScore) {
+  return async (dispatch, getState) => {
+    try {
+      const response = await Axios.patch(`${apiUrl}/predictions/${id}`, {
+        totalScore,
+      });
+    } catch (e) {}
+  };
+}

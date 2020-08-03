@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import moment from "moment";
 import logoDummy from "../images/logoDummy.png";
 import { ReactComponent as Clock } from "../images/clock.svg";
@@ -11,6 +11,8 @@ import { Button, Col, Form } from "react-bootstrap";
 import { selectScores } from "../../store/configs/selectors";
 import { calculateScore } from "../../config/helperScores";
 import { selectUser } from "../../store/user/selectors";
+import { addTotalScore } from "../../store/configs/actions";
+import { Link } from "react-router-dom";
 
 export default function MatchEntry(props) {
   const dispatch = useDispatch();
@@ -57,11 +59,37 @@ export default function MatchEntry(props) {
     scores[0]
   );
 
+  if (props.predictions.length > 0 && totalScore !== null) {
+    console.log(
+      "TotalScore for matchId :",
+      props.predictions[0].id,
+      props.fixtureId,
+      user.id,
+      totalScore
+    );
+    dispatch(addTotalScore(props.predictions[0].id, totalScore));
+  }
+
   return (
     <tr style={{ color: props.color }}>
-      <td style={{ verticalAlign: "middle" }}>{`${props.round} | ${moment
-        .unix(props.eventTimestamp)
-        .format("DD MMMM YYYY, h:mm uur")}`}</td>
+      <Link
+        to={{
+          pathname: `/wedstrijd/${props.fixtureId}`,
+          aboutProps: {
+            eventTimestamp: props.eventTimestamp,
+            round: props.round,
+            homeTeamGoals: props.goalsHomeTeam,
+            awayTeamGoals: props.goalsAwayTeam,
+          },
+        }}
+      >
+        <td style={{ verticalAlign: "middle" }}>{`${
+          props.round
+        } | ${moment
+          .unix(props.eventTimestamp)
+          .format("DD MMMM YYYY, h:mm uur")}`}</td>
+      </Link>
+
       <td style={{ textAlign: "center", verticalAlign: "middle" }}>
         <img
           style={{ width: "20px", height: "20px" }}

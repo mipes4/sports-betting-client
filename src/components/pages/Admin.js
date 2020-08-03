@@ -1,7 +1,12 @@
 import React, { useEffect } from "react";
 import { useSelector } from "react-redux";
-import { useHistory, Link } from "react-router-dom";
+import { useHistory } from "react-router-dom";
 import { selectToken } from "../../store/user/selectors";
+// Components
+import Sidebar from "../sidebar/Sidebar";
+import Signup from "../signup/Signup";
+// Styles
+import "../../scss/Admin.scss";
 
 export default function Admin() {
   const token = useSelector(selectToken);
@@ -14,13 +19,14 @@ export default function Admin() {
   }, [token, history]);
 
   return (
-    <div>
-      <h1>Admin page</h1>
-      <Link to="/signup" style={{ textAlign: "center" }}>
-        Click here to sign up a new user
-      </Link>
+    <div className="admin__container">
+      <div className="admin__container--sidebar">
+        <Sidebar />
+      </div>
 
-      <p style={{ color: "#fff" }}>some other admin tasks</p>
+      <div className="admin__container--editor">
+        <Signup />
+      </div>
     </div>
   );
 }
