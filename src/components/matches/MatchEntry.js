@@ -71,7 +71,8 @@ export default function MatchEntry(props) {
   }
 
   return (
-    <tr>
+    <tr style={{ color: props.color }} id={props.gameId}>
+      <td>{props.gameId}</td>
       <Link
         to={{
           pathname: `/wedstrijd/${props.fixtureId}`,
@@ -89,6 +90,7 @@ export default function MatchEntry(props) {
           .unix(props.eventTimestamp)
           .format("DD MMMM YYYY, h:mm uur")}`}</td>
       </Link>
+
       <td style={{ textAlign: "center", verticalAlign: "middle" }}>
         <img
           style={{ width: "20px", height: "20px" }}

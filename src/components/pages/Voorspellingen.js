@@ -6,9 +6,10 @@ import { selectMatches } from "../../store/matches/selectors";
 import { selectUser } from "../../store/user/selectors";
 import { selectToken } from "../../store/user/selectors";
 import { fetchScores } from "../../store/configs/actions";
-import { Container, Table } from "react-bootstrap";
-import { useHistory } from "react-router-dom";
+import { Container, Table, Navbar, Nav } from "react-bootstrap";
+import { useHistory, NavLink } from "react-router-dom";
 import { appLoading } from "../../store/appState/actions";
+import TableMatches from "../matches/TableMatches";
 
 export default function Voorspellingen() {
   const dispatch = useDispatch();
@@ -28,50 +29,58 @@ export default function Voorspellingen() {
     }
   }, [token, history]);
 
-  if (!matches) return dispatch(appLoading());
-
-  const compareMatches = (matchA, matchB) => {
-    return matchB.eventTimeStamp - matchA.eventTimeStamp;
-  };
-
-  const sortedMatches = matches.sort(compareMatches);
-
-  const matchesToMatchCard = sortedMatches.map((match) => {
-    return (
-      <MatchEntry
-        key={match.id}
-        fixtureId={match.id}
-        homeTeamId={match.homeTeamId}
-        homeTeamName={match.homeTeamName}
-        homeTeamLogo={match.homeTeamLogo}
-        goalsHomeTeam={match.goalsHomeTeam}
-        awayTeamId={match.awayTeamId}
-        awayTeamName={match.awayTeamName}
-        awayTeamLogo={match.awayTeamLogo}
-        goalsAwayTeam={match.goalsAwayTeam}
-        eventTimestamp={match.eventTimeStamp}
-        round={match.round}
-        status={match.status}
-        predictions={match.predictions}
-      />
-    );
-  });
-
   return (
-    <Container md={{ span: 11, offset: 0.5 }}>
-      <h1>Voorspellingen</h1>
+    <div style={{ display: "flex" }}>
+      <nav id="navbar-example3" class="navbar navbar-light bg-light">
+        <a class="navbar-brand" href="#">
+          Voorspellingen
+        </a>
+        <nav class="nav nav-pills flex-column">
+          <a class="nav-link" href="#1">
+            Spel 1
+          </a>
+          <a class="nav-link" href="#2">
+            Spel 2
+          </a>
+          <a class="nav-link" href="#3">
+            Spel 3
+          </a>
+          <a class="nav-link" href="#4">
+            Spel 4
+          </a>
+          <a class="nav-link" href="#5">
+            Spel 5
+          </a>
+          <a class="nav-link" href="#6">
+            Spel 6
+          </a>
+          <a class="nav-link" href="#7">
+            Spel 7
+          </a>
+          <a class="nav-link" href="#8">
+            Spel 8
+          </a>
+          <a class="nav-link" href="#9">
+            Spel 9
+          </a>
+          <a class="nav-link" href="#10">
+            Spel 10
+          </a>
+          <a class="nav-link" href="#11">
+            Spel 11
+          </a>
+        </nav>
+      </nav>
 
-      <Table
-        style={{ fontSize: 12, textAlign: "left", verticalAlign: "middle" }}
-        striped
-        bordered
-        hover
-        variant="dark"
-        size="sm"
-        responsive="xl"
+      <Container
+        md={{ span: 10, offset: 0.5 }}
+        data-spy="scroll"
+        data-target="#navbar-example3"
+        data-offset="0"
+        style={{ height: "100vh", overflowY: "scroll" }}
       >
-        <tbody>{matchesToMatchCard}</tbody>
-      </Table>
-    </Container>
+        <TableMatches />
+      </Container>
+    </div>
   );
 }
