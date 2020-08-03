@@ -16,6 +16,7 @@ export default function TableMatches() {
   const sortedMatches = [...matches].sort(compareMatches);
 
   const matchesToMatchEntry = sortedMatches.map((match, i) => {
+    match.gameId = i % 27 === 0 ? i / 27 + 1 : "";
     const newColor = i % 27 === 0 ? "red" : "white";
     return (
       <MatchEntry
@@ -34,6 +35,7 @@ export default function TableMatches() {
         round={match.round.match(/\d+/)[0]}
         status={match.status}
         predictions={match.predictions}
+        gameId={match.gameId}
       />
     );
   });

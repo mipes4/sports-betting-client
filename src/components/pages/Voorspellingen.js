@@ -36,37 +36,37 @@ export default function Voorspellingen() {
           Voorspellingen
         </a>
         <nav class="nav nav-pills flex-column">
-          <a class="nav-link" href="#game-1">
+          <a class="nav-link" href="#1">
             Spel 1
           </a>
-          <a class="nav-link" href="#game-2">
+          <a class="nav-link" href="#2">
             Spel 2
           </a>
-          <a class="nav-link" href="#game-3">
+          <a class="nav-link" href="#3">
             Spel 3
           </a>
-          <a class="nav-link" href="#game-4">
+          <a class="nav-link" href="#4">
             Spel 4
           </a>
-          <a class="nav-link" href="#game-5">
+          <a class="nav-link" href="#5">
             Spel 5
           </a>
-          <a class="nav-link" href="#game-6">
+          <a class="nav-link" href="#6">
             Spel 6
           </a>
-          <a class="nav-link" href="#game-7">
+          <a class="nav-link" href="#7">
             Spel 7
           </a>
-          <a class="nav-link" href="#game-8">
+          <a class="nav-link" href="#8">
             Spel 8
           </a>
-          <a class="nav-link" href="#game-9">
+          <a class="nav-link" href="#9">
             Spel 9
           </a>
-          <a class="nav-link" href="#game-10">
+          <a class="nav-link" href="#10">
             Spel 10
           </a>
-          <a class="nav-link" href="#game-11">
+          <a class="nav-link" href="#11">
             Spel 11
           </a>
         </nav>

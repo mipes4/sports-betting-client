@@ -71,7 +71,8 @@ export default function MatchEntry(props) {
   }
 
   return (
-    <tr style={{ color: props.color }}>
+    <tr style={{ color: props.color }} id={props.gameId}>
+      <td>{props.gameId}</td>
       <Link
         to={{
           pathname: `/wedstrijd/${props.fixtureId}`,
