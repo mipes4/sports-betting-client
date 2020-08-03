@@ -31,7 +31,7 @@ export default function Voorspellingen() {
 
   return (
     <div style={{ display: "flex" }}>
-      <nav id="navbar-example3" class="navbar navbar-light bg-light">
+      <nav id="navbar-games" class="navbar navbar-light bg-light">
         <a class="navbar-brand" href="#">
           Voorspellingen
         </a>
@@ -75,7 +75,7 @@ export default function Voorspellingen() {
       <Container
         md={{ span: 10, offset: 0.5 }}
         data-spy="scroll"
-        data-target="#navbar-example3"
+        data-target="#navbar-games"
         data-offset="0"
         style={{ height: "100vh", overflowY: "scroll" }}
       >

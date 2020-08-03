@@ -73,23 +73,24 @@ export default function MatchEntry(props) {
   return (
     <tr style={{ color: props.color }} id={props.gameId}>
       <td>{props.gameId}</td>
-      <Link
-        to={{
-          pathname: `/wedstrijd/${props.fixtureId}`,
-          aboutProps: {
-            eventTimestamp: props.eventTimestamp,
-            round: props.round,
-            homeTeamGoals: props.goalsHomeTeam,
-            awayTeamGoals: props.goalsAwayTeam,
-          },
-        }}
-      >
-        <td style={{ verticalAlign: "middle" }}>{`${
-          props.round
-        } | ${moment
-          .unix(props.eventTimestamp)
-          .format("DD MMMM YYYY, h:mm uur")}`}</td>
-      </Link>
+
+      <td style={{ verticalAlign: "middle" }}>
+        <Link
+          to={{
+            pathname: `/wedstrijd/${props.fixtureId}`,
+            aboutProps: {
+              eventTimestamp: props.eventTimestamp,
+              round: props.round,
+              homeTeamGoals: props.goalsHomeTeam,
+              awayTeamGoals: props.goalsAwayTeam,
+            },
+          }}
+        >
+          {`${props.round} | ${moment
+            .unix(props.eventTimestamp)
+            .format("DD MMMM YYYY, h:mm uur")}`}
+        </Link>
+      </td>
 
       <td style={{ textAlign: "center", verticalAlign: "middle" }}>
         <img
