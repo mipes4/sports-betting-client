@@ -17,11 +17,13 @@ export default function TableMatches() {
 
   const matchesToMatchEntry = sortedMatches.map((match, i) => {
     match.gameId = i % 27 === 0 ? i / 27 + 1 : "";
-    const newColor = i % 27 === 0 ? "red" : "white";
+    // const newColor = i % 27 === 0 ? "red" : "white";
+    const rowColor = match.round.match(/\d+/)[0] % 2 === 0 ? "red" : "white";
     return (
       <MatchEntry
         key={match.id}
-        color={newColor}
+        // color={newColor}
+        color={rowColor}
         fixtureId={match.id}
         homeTeamId={match.homeTeamId}
         homeTeamName={match.homeTeamName}
