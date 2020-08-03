@@ -17,6 +17,9 @@ import Loading from "./components/loading/Loading";
 // styles
 // import "./bootstrap.min.css";
 import "./App.css";
+import TotoBoard from "./components/pages/TotoBoard";
+import MatchBoard from "./components/pages/MatchBoard";
+import GameBoard from "./components/pages/GameBoard";
 
 function App() {
   const dispatch = useDispatch();
@@ -32,6 +35,8 @@ function App() {
       <MessageBox />
       {isLoading ? <Loading /> : null}
       <Switch>
+        <Route path="/wedstrijd/:matchId" component={MatchBoard} />
+        <Route path="/game/:gameId" component={GameBoard} />
         <Route exact path="/" component={Home} />
         <Route path="/signup" component={SignUp} />
         <Route path="/login" component={Login} />
@@ -39,6 +44,7 @@ function App() {
         <Route path="/regels" component={Regels} />
         <Route path="/profiel" component={Profiel} />
         <Route path="/admin" component={Admin} />
+        <Route path="/totoboard" component={TotoBoard} />
       </Switch>
     </div>
   );
