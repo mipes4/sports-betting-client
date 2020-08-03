@@ -17,7 +17,6 @@ export default (state = initialState, action) => {
       return { ...state, scores: action.payload };
     case ADD_ROUNDS:
       return { ...state, rounds: action.payload };
-
     default:
       return state;
   }
