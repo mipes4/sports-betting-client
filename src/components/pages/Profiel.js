@@ -37,6 +37,7 @@ export default function Profiel() {
         frontName,
         lastName,
         phone,
+        club,
         totaalToto
         // password
       )

@@ -139,6 +139,7 @@ export const changeUser = (
   firstName,
   lastName,
   phoneNumber,
+  club,
   totaalToto
   // password
 ) => {
@@ -152,6 +153,7 @@ export const changeUser = (
         firstName,
         lastName,
         phoneNumber,
+        club,
         totaalToto,
         // password,
       });
