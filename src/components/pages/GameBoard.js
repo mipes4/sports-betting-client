@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchGameScores } from "../../store/predictions/actions";
 import { selectPredictions } from "../../store/predictions/selectors";
@@ -12,7 +12,7 @@ export default function GameBoard() {
   console.log("gameScores:", gameScores);
   useEffect(() => {
     dispatch(fetchGameScores(gameId));
-  }, [dispatch]);
+  }, [dispatch, gameId]);
   return (
     <div>
       <Container>

@@ -1,9 +1,7 @@
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
-import { useHistory, Link } from "react-router-dom";
 import { Form, Container, Button, Col } from "react-bootstrap";
 import { signUp } from "../../store/user/actions";
-import { selectToken, selectUser } from "../../store/user/selectors";
 
 export default function SignUp() {
   const dispatch = useDispatch();
