@@ -139,7 +139,7 @@ export default function Profiel() {
         </Form.Group>
 
         {/* wv: hardcoded for now in the future we can make this a selector */}
-        <Form.Group as={Row} controlId="formBasicPassword">
+        <Form.Group as={Row} controlId="formBasicClub">
           <Form.Label style={{ textAlign: "left" }} column sm={3}>
             Favoriete club
           </Form.Label>

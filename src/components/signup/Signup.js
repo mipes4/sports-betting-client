@@ -10,6 +10,7 @@ export default function SignUp() {
   const [lastName, setLastName] = useState("");
   const [telNumber, setTelNumber] = useState("");
   const [email, setEmail] = useState("");
+  const [club, setClub] = useState("");
   const [password, setPassword] = useState("");
   const [totaalToto, setTotaalToto] = useState(true);
   const [isAdmin, setIsAdmin] = useState(false);
@@ -26,6 +27,7 @@ export default function SignUp() {
         lastName,
         telNumber,
         email,
+        club,
         password,
         totaalToto,
         isAdmin
@@ -93,6 +95,16 @@ export default function SignUp() {
             onChange={(event) => setEmail(event.target.value)}
             type="text"
             placeholder="Emailadres"
+            required
+          />
+        </Form.Group>
+
+        <Form.Group controlId="formBasicClub">
+          <Form.Control
+            value={club}
+            onChange={(event) => setClub(event.target.value)}
+            type="text"
+            placeholder="Favoriete club"
             required
           />
         </Form.Group>

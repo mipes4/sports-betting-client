@@ -40,6 +40,7 @@ export const signUp = (
   lastName,
   telNumber,
   email,
+  club,
   password,
   totaalToto,
   isAdmin
@@ -53,6 +54,7 @@ export const signUp = (
         lastName,
         telNumber,
         email,
+        club,
         password,
         totaalToto,
         isAdmin,
