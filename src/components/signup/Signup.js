@@ -34,7 +34,7 @@ export default function SignUp() {
       <Form as={Col} md={{ span: 6, offset: 3 }} className="mt-5">
         <h3>Nieuw lid</h3>
 
-        <Form.Group controlId="formBasicName">
+        <Form.Group controlId="formBasicUserName">
           <Form.Label>Gebruikersnaam</Form.Label>
           <Form.Control
             value={userName}
@@ -45,7 +45,7 @@ export default function SignUp() {
           />
         </Form.Group>
 
-        <Form.Group controlId="formBasicName">
+        <Form.Group controlId="formBasicFirstName">
           <Form.Label>Voornaam</Form.Label>
           <Form.Control
             value={firstName}
@@ -56,7 +56,7 @@ export default function SignUp() {
           />
         </Form.Group>
 
-        <Form.Group controlId="formBasicName">
+        <Form.Group controlId="formBasicLastName">
           <Form.Label>Achternaam</Form.Label>
           <Form.Control
             value={lastName}
@@ -67,7 +67,7 @@ export default function SignUp() {
           />
         </Form.Group>
 
-        <Form.Group controlId="formBasicEmail">
+        <Form.Group controlId="formBasicTelNumber">
           <Form.Label>Telefoonnummer</Form.Label>
           <Form.Control
             value={telNumber}

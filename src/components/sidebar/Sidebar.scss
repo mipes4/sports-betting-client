@@ -1,7 +1,9 @@
-.sidebar__container {
-  justify-content: start;
+.sidebar {
+  &__container {
+    justify-content: start;
+  }
 
-  a {
-    color: #000;
+  &__btn {
+    border: none;
   }
 }
