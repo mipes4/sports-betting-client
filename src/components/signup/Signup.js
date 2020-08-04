@@ -30,65 +30,59 @@ export default function SignUp() {
   return (
     <Container>
       <Form as={Col} md={{ span: 6, offset: 3 }} className="mt-5">
-        <h3>Nieuw lid</h3>
+        <h3>Maak een account voor een nieuw lid</h3>
 
         <Form.Group controlId="formBasicUserName">
-          <Form.Label>Gebruikersnaam</Form.Label>
           <Form.Control
             value={userName}
             onChange={(event) => setUserName(event.target.value)}
             type="text"
-            placeholder="Enter user name"
+            placeholder="Gebruikersnaam"
             required
           />
         </Form.Group>
 
         <Form.Group controlId="formBasicFirstName">
-          <Form.Label>Voornaam</Form.Label>
           <Form.Control
             value={firstName}
             onChange={(event) => setFirstName(event.target.value)}
             type="text"
-            placeholder="Enter firstname"
+            placeholder="Voornaam"
             required
           />
         </Form.Group>
 
         <Form.Group controlId="formBasicLastName">
-          <Form.Label>Achternaam</Form.Label>
           <Form.Control
             value={lastName}
             onChange={(event) => setLastName(event.target.value)}
             type="text"
-            placeholder="Enter lastname"
+            placeholder="Achternaam"
             required
           />
         </Form.Group>
 
         <Form.Group controlId="formBasicTelNumber">
-          <Form.Label>Telefoonnummer</Form.Label>
           <Form.Control
             value={telNumber}
             onChange={(event) => setTelNumber(event.target.value)}
             type="email"
-            placeholder="Enter telephone number"
+            placeholder="Telefoonnummer"
             required
           />
         </Form.Group>
 
         <Form.Group controlId="formBasicEmail">
-          <Form.Label>Emailadres</Form.Label>
           <Form.Control
             value={email}
             onChange={(event) => setEmail(event.target.value)}
             type="text"
-            placeholder="Enter email address"
+            placeholder="Emailadres"
             required
           />
         </Form.Group>
 
         <Form.Group controlId="formBasicPassword">
-          <Form.Label>Password</Form.Label>
           <Form.Control
             value={password}
             onChange={(event) => setPassword(event.target.value)}
