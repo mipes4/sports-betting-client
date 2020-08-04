@@ -11,6 +11,8 @@ export default function SignUp() {
   const [telNumber, setTelNumber] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [totaalToto, setTotaalToto] = useState(true);
+  const [isAdmin, setIsAdmin] = useState(false);
 
   function submitForm(event) {
     event.preventDefault();
@@ -93,11 +95,21 @@ export default function SignUp() {
         </Form.Group>
 
         <Form.Group controlId="formBasicCheckbox">
-          <Form.Check label="Totaaltoto" defaultChecked type="checkbox" />
+          <Form.Check
+            label="Totaaltoto"
+            checked={totaalToto}
+            type="checkbox"
+            onChange={() => setTotaalToto(!totaalToto)}
+          />
         </Form.Group>
 
         <Form.Group controlId="formBasicCheckbox">
-          <Form.Check label="Admin" defaultChecked={false} type="checkbox" />
+          <Form.Check
+            label="Admin"
+            checked={isAdmin}
+            type="checkbox"
+            onChange={() => setIsAdmin(!isAdmin)}
+          />
         </Form.Group>
 
         <Form.Group className="mt-5">
