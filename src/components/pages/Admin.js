@@ -20,10 +20,7 @@ export default function Admin() {
 
   return (
     <div className="admin__container">
-      <div className="admin__container--sidebar">
-        <Sidebar />
-      </div>
-
+      <Sidebar />
       <div className="admin__container--editor">
         <Signup />
       </div>
