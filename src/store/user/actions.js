@@ -40,7 +40,9 @@ export const signUp = (
   lastName,
   telNumber,
   email,
-  password
+  password,
+  totaalToto,
+  isAdmin
 ) => {
   return async (dispatch, getState) => {
     dispatch(appLoading());
@@ -52,6 +54,8 @@ export const signUp = (
         telNumber,
         email,
         password,
+        totaalToto,
+        isAdmin,
       });
 
       dispatch(loginSuccess(response.data));

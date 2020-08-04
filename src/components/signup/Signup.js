@@ -19,7 +19,18 @@ export default function SignUp() {
 
     // Which data is needed to sign up a new user?
     // Check model/table in DB
-    dispatch(signUp(userName, firstName, lastName, telNumber, email, password));
+    dispatch(
+      signUp(
+        userName,
+        firstName,
+        lastName,
+        telNumber,
+        email,
+        password,
+        totaalToto,
+        isAdmin
+      )
+    );
 
     setUserName("");
     setFirstName("");
@@ -27,6 +38,8 @@ export default function SignUp() {
     setTelNumber("");
     setEmail("");
     setPassword("");
+    setTotaalToto(true);
+    setIsAdmin(false);
   }
 
   return (
