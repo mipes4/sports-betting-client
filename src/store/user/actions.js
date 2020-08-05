@@ -40,7 +40,10 @@ export const signUp = (
   lastName,
   telNumber,
   email,
-  password
+  club,
+  password,
+  totaalToto,
+  isAdmin
 ) => {
   return async (dispatch, getState) => {
     dispatch(appLoading());
@@ -51,7 +54,10 @@ export const signUp = (
         lastName,
         telNumber,
         email,
+        club,
         password,
+        totaalToto,
+        isAdmin,
       });
 
       dispatch(loginSuccess(response.data));
@@ -135,6 +141,7 @@ export const changeUser = (
   firstName,
   lastName,
   phoneNumber,
+  club,
   totaalToto
   // password
 ) => {
@@ -148,6 +155,7 @@ export const changeUser = (
         firstName,
         lastName,
         phoneNumber,
+        club,
         totaalToto,
         // password,
       });

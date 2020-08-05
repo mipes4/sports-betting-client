@@ -13,6 +13,7 @@ export default function Profiel() {
   const [lastName, setLastName] = useState();
   const [userName, setUserName] = useState();
   const [phone, setPhone] = useState();
+  const [club, setClub] = useState("");
   const [totaalToto, setTotaalToto] = useState();
   const [password, setPassword] = useState("");
   const token = useSelector(selectToken);
@@ -36,6 +37,7 @@ export default function Profiel() {
         frontName,
         lastName,
         phone,
+        club,
         totaalToto
         // password
       )
@@ -45,20 +47,21 @@ export default function Profiel() {
 
   return (
     <Container>
-      <h1 className="mt-5 mb-5">Profiel</h1>
       <Form as={Col} md={{ span: 6, offset: 3 }} className="mt-5">
         <Form.Group as={Row} controlId="formHorizontalFrontName">
           <Form.Label style={{ textAlign: "left" }} column sm={3}>
             Voornaam
           </Form.Label>
-          <Col sm={8}>
+          <Col>
             <Form.Control
-              defaultValue={user.frontName}
+              sm={8}
+              defaultValue={user.firstName}
               type="text"
               onChange={(event) => setFrontName(event.target.value)}
             />
           </Col>
         </Form.Group>
+
         <Form.Group as={Row} controlId="formBasicLastName">
           <Form.Label style={{ textAlign: "left" }} column sm={3}>
             Achternaam
@@ -71,6 +74,7 @@ export default function Profiel() {
             />
           </Col>
         </Form.Group>
+
         <Form.Group as={Row} controlId="formBasicUser">
           <Form.Label style={{ textAlign: "left" }} column sm={3}>
             Username
@@ -84,6 +88,7 @@ export default function Profiel() {
             />
           </Col>
         </Form.Group>
+
         <Form.Group as={Row} controlId="formBasicEmail">
           <Form.Label style={{ textAlign: "left" }} column sm={3}>
             Emailadres
@@ -92,6 +97,7 @@ export default function Profiel() {
             <Form.Control defaultValue={user.email} type="email" required />
           </Col>
         </Form.Group>
+
         <Form.Group as={Row} controlId="formBasicPhone">
           <Form.Label style={{ textAlign: "left" }} column sm={3}>
             Telefoonnummer
@@ -105,6 +111,7 @@ export default function Profiel() {
             />
           </Col>
         </Form.Group>
+
         <Form.Group as={Row} controlId="formBasicToto">
           <Col sm={{ span: 9, offset: 2 }}>
             <Form.Check
@@ -130,6 +137,23 @@ export default function Profiel() {
             />
           </Col>
         </Form.Group>
+
+        {/* wv: hardcoded for now in the future we can make this a selector */}
+        <Form.Group as={Row} controlId="formBasicClub">
+          <Form.Label style={{ textAlign: "left" }} column sm={3}>
+            Favoriete club
+          </Form.Label>
+          <Col sm={8}>
+            <Form.Control
+              value={club}
+              onChange={(event) => setClub(event.target.value)}
+              type="text"
+              placeholder="Club"
+              required
+            />
+          </Col>
+        </Form.Group>
+
         <Form.Group as={Row} className="mt-5">
           <Col sm={{ span: 9, offset: 2 }}>
             <Button variant="primary" type="submit" onClick={submitForm}>

@@ -1,4 +1,9 @@
-.sidebar__container {
-  margin-top: 10rem;
-  color: #fff;
+.sidebar {
+  &__container {
+    justify-content: start;
+  }
+
+  &__btn {
+    border: none;
+  }
 }

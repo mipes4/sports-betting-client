@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchMatchPredictions } from "../../store/predictions/actions";
 import { selectPredictions } from "../../store/predictions/selectors";
@@ -14,7 +14,7 @@ export default function MatchBoard(props) {
   console.log("matchPrediction:", matchPrediction);
   useEffect(() => {
     dispatch(fetchMatchPredictions(matchId));
-  }, [dispatch]);
+  }, [dispatch, matchId]);
   // console.log("props:", eventTimestamp);
   return (
     <div>

@@ -7,7 +7,6 @@ import { getUserWithStoredToken } from "./store/user/actions";
 import Home from "./components/pages/Home";
 import Voorspellingen from "./components/pages/Voorspellingen";
 import Regels from "./components/pages/Regels";
-import SignUp from "./components/pages/SignUp";
 import Login from "./components/pages/Login";
 import Profiel from "./components/pages/Profiel";
 import Admin from "./components/pages/Admin";
@@ -38,7 +37,6 @@ function App() {
         <Route path="/wedstrijd/:matchId" component={MatchBoard} />
         <Route path="/game/:gameId" component={GameBoard} />
         <Route exact path="/" component={Home} />
-        <Route path="/signup" component={SignUp} />
         <Route path="/login" component={Login} />
         <Route path="/voorspellingen" component={Voorspellingen} />
         <Route path="/regels" component={Regels} />
