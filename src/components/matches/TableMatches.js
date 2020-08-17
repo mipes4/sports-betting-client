@@ -16,7 +16,7 @@ export default function TableMatches() {
   const sortedMatches = [...matches].sort(compareMatches);
 
   const matchesToMatchEntry = sortedMatches.map((match, i) => {
-    match.gameId = i % 27 === 0 && i / 27 < 12 ? i / 27 + 1 : "";
+    match.gameId = i % 27 === 0 && i / 27 + 1 < 12 ? i / 27 + 1 : "";
     // const newColor = i % 27 === 0 ? "red" : "white";
     const rowColor = match.round.match(/\d+/)[0] % 2 === 0 ? "red" : "white";
     return (
