@@ -1,8 +1,10 @@
-import { ADD_SCORES, ADD_ROUNDS } from "./actions";
+import { ADD_SCORES, ADD_ROUNDS, CURRENT_GAME, CURRENT_ROUND } from "./actions";
 
 const initialState = {
   scores: [],
   rounds: null,
+  currentGame: null,
+  currentRound: null,
 };
 
 export default (state = initialState, action) => {
@@ -17,6 +19,10 @@ export default (state = initialState, action) => {
       return { ...state, scores: action.payload };
     case ADD_ROUNDS:
       return { ...state, rounds: action.payload };
+    case CURRENT_GAME:
+      return { ...state, currentGame: action.payload };
+    case CURRENT_ROUND:
+      return { ...state, currentRound: action.payload };
     default:
       return state;
   }
