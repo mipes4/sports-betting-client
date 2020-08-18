@@ -30,35 +30,54 @@ export default function Login() {
   }
 
   return (
-    <Container>
-      <Form as={Col} md={{ span: 6, offset: 3 }} className="mt-5">
-        <Form.Group controlId="formBasicEmail">
-          <Form.Label>Emailadres</Form.Label>
-          <Form.Control
-            value={email}
-            onChange={(event) => setEmail(event.target.value)}
-            type="email"
-            placeholder="Vul emailadres in"
-            required
-          />
-        </Form.Group>
+    <container>
+      <div class="row">
+        <div class="col-4" style={{}}>
+          "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+          eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
+          minim veniam, quis nostrud exercitation ullamco laboris nisi ut
+          aliquip ex ea commodo consequat. Duis aute irure dolor in
+          reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
+          pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
+          culpa qui officia deserunt mollit anim id est laborum."
+        </div>
 
-        <Form.Group controlId="formBasicPassword">
-          <Form.Label>Wachtwoord</Form.Label>
-          <Form.Control
-            value={password}
-            onChange={(event) => setPassword(event.target.value)}
-            type="password"
-            placeholder="Wachtwoord"
-            required
-          />
-        </Form.Group>
-        <Form.Group className="mt-5">
-          <Button variant="primary" type="submit" onClick={submitForm}>
-            Inloggen
-          </Button>
-        </Form.Group>
-      </Form>
-    </Container>
+        <div
+          class="col-8"
+          style={{
+            minHeight: "calc(100vh - 80px)",
+          }}
+        >
+          <Form as={Col} md={{ span: 6, offset: 3 }} className="mt-5">
+            <Form.Group controlId="formBasicEmail">
+              <Form.Label>Emailadres</Form.Label>
+              <Form.Control
+                value={email}
+                onChange={(event) => setEmail(event.target.value)}
+                type="email"
+                placeholder="Vul emailadres in"
+                required
+              />
+            </Form.Group>
+
+            <Form.Group controlId="formBasicPassword">
+              <Form.Label>Wachtwoord</Form.Label>
+              <Form.Control
+                value={password}
+                onChange={(event) => setPassword(event.target.value)}
+                type="password"
+                placeholder="Wachtwoord"
+                required
+              />
+            </Form.Group>
+            <Form.Group className="mt-5">
+              <Button variant="primary" type="submit" onClick={submitForm}>
+                Inloggen
+              </Button>
+            </Form.Group>
+          </Form>
+        </div>
+      </div>
+    </container>
   );
 }

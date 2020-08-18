@@ -11,8 +11,12 @@ export default function NavigationComponent() {
   const renderControlsLoggedIn = token ? <LoggedIn /> : null;
 
   return (
-    <Navbar collapseOnSelect expand="lg">
-      <Navbar.Brand>Sports Betting</Navbar.Brand>
+    <Navbar
+      collapseOnSelect
+      expand="lg"
+      style={{ boxShadow: "none", backgroundColor: "transparent" }}
+    >
+      <Navbar.Brand style={{ color: "#fff" }}>Sports Betting</Navbar.Brand>
       <Navbar.Toggle aria-controls="responsive-navbar-nav" />
       <Navbar.Collapse id="responsive-navbar-nav">
         {renderControlsLoggedIn}

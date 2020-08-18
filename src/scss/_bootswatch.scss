@@ -47,7 +47,8 @@ $web-font-path: "https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&
 
 .navbar {
   border: none;
-  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+  background-color: #2581d4;
+  // box-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
 
   &-brand {
     font-size: 24px;
