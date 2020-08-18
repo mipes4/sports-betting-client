@@ -35,7 +35,7 @@ export const updateUser = (data) => {
 };
 
 export const signUp = (
-  userName,
+  username,
   firstName,
   lastName,
   telNumber,
@@ -49,7 +49,7 @@ export const signUp = (
     dispatch(appLoading());
     try {
       const response = await Axios.post(`${apiUrl}/signup`, {
-        userName,
+        username,
         firstName,
         lastName,
         telNumber,
