@@ -70,11 +70,11 @@ export default function Voorspellingen() {
       </nav>
 
       <Container
+        className="voorspellingen"
         md={{ span: 10, offset: 0.5 }}
         data-spy="scroll"
         data-target="#navbar-games"
         data-offset="0"
-        style={{ height: "100vh", overflowY: "scroll" }}
       >
         <TableMatches />
       </Container>

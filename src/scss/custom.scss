@@ -40,3 +40,8 @@ div.mt-5.col-md-6.offset-md-3 {
   border-radius: 1rem;
   padding: 1rem;
 }
+
+div.voorspellingen.container {
+  height: calc(100vh - 80px);
+  overflow-y: scroll;
+}
