@@ -3,6 +3,8 @@ import Axios from "axios";
 
 export const ADD_SCORES = "ADD_SCORES";
 export const ADD_ROUNDS = "ADD_ROUNDS";
+export const CURRENT_GAME = "CURRENT_GAME";
+export const CURRENT_ROUND = "CURRENT_ROUND";
 
 export function dataScores(data) {
   return { type: ADD_SCORES, payload: data };
@@ -31,12 +33,34 @@ export function fetchRounds() {
 }
 
 // updating prediction table to final score of the player.
-export function addTotalScore(id, totalScore) {
-  return async (dispatch, getState) => {
-    try {
-      const response = await Axios.patch(`${apiUrl}/predictions/${id}`, {
-        totalScore,
-      });
-    } catch (e) {}
-  };
+export async function fetchCurrentGame(dispatch, getState) {
+  try {
+    const response = await Axios.get(`${apiUrl}/game`);
+
+    const round = response.data[0].round.replace(/\D/g, "");
+
+    const game =
+      round === 34
+        ? 11
+        : round % 3 === 0
+        ? round / 3
+        : Math.floor(round / 3) + 1;
+    console.log("game:", game);
+    dispatch({
+      type: CURRENT_GAME,
+      payload: game,
+    });
+  } catch (e) {}
+}
+
+// updating prediction table to final score of the player.
+export async function fetchCurrentRound(dispatch, getState) {
+  try {
+    const response = await Axios.get(`${apiUrl}/game/currentround`);
+    const round = response.data[0].round;
+    dispatch({
+      type: CURRENT_ROUND,
+      payload: round,
+    });
+  } catch (e) {}
 }
