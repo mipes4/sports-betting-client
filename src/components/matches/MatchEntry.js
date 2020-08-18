@@ -9,9 +9,7 @@ import {
 } from "../../store/predictions/actions";
 import { Button, Col, Form } from "react-bootstrap";
 import { selectScores } from "../../store/configs/selectors";
-import { calculateScore } from "../../config/helperScores";
 import { selectUser } from "../../store/user/selectors";
-import { addTotalScore } from "../../store/configs/actions";
 import { Link } from "react-router-dom";
 
 export default function MatchEntry(props) {
@@ -52,23 +50,6 @@ export default function MatchEntry(props) {
         <td>Loading...</td>
       </tr>
     );
-
-  const totalScore = calculateScore(
-    { homeTeam: props.goalsHomeTeam, awayTeam: props.goalsAwayTeam },
-    { homeTeam: predGoalsHomeTeam[0], awayTeam: predGoalsAwayTeam[0] },
-    scores[0]
-  );
-
-  if (props.predictions.length > 0 && totalScore !== null) {
-    console.log(
-      "TotalScore for matchId :",
-      props.predictions[0].id,
-      props.fixtureId,
-      user.id,
-      totalScore
-    );
-    dispatch(addTotalScore(props.predictions[0].id, totalScore));
-  }
 
   return (
     <tr style={{ color: props.color }} id={props.gameId}>
@@ -177,7 +158,7 @@ export default function MatchEntry(props) {
           props.status === "CANC" ||
           predGoalsAwayTeam[0] === undefined
             ? ""
-            : `Score: ${totalScore}`}
+            : `Score: ${props.predictions.totalScore}`}
         </td>
       )}
       <td style={{ verticalAlign: "middle" }}>
