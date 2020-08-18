@@ -27,7 +27,7 @@ export default (state = initialState, action) => {
     case ALL_PREDICTIONS_SCORES:
       return {
         ...state,
-        finalScores: action.payload,
+        totoScores: action.payload,
       };
     case MATCH_PREDICTION_DATA:
       return {
