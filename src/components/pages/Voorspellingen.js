@@ -5,7 +5,6 @@ import { useDispatch, useSelector } from "react-redux";
 // import { selectMatches } from "../../store/matches/selectors";
 import { selectUser } from "../../store/user/selectors";
 import { selectToken } from "../../store/user/selectors";
-import { fetchScores } from "../../store/configs/actions";
 import { Container } from "react-bootstrap";
 import { useHistory } from "react-router-dom";
 // import { appLoading } from "../../store/appState/actions";
@@ -17,10 +16,8 @@ export default function Voorspellingen() {
   const token = useSelector(selectToken);
   const history = useHistory();
   const user = useSelector(selectUser);
-
   useEffect(() => {
     dispatch(fetchMatchesAndPredictions(user.id));
-    dispatch(fetchScores());
   }, [dispatch, user.id]);
 
   useEffect(() => {
