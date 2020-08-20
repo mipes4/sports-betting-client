@@ -45,8 +45,8 @@ export default function SignUp() {
   }
 
   return (
-    <Container>
-      <Form as={Col} md={{ span: 6, offset: 3 }} className="mt-5">
+    <div class="col-6 offset-3">
+      <form>
         <h3>Maak een account voor een nieuw lid</h3>
 
         <Form.Group controlId="formBasicUserName">
@@ -142,7 +142,7 @@ export default function SignUp() {
             Aanmelden
           </Button>
         </Form.Group>
-      </Form>
-    </Container>
+      </form>
+    </div>
   );
 }
