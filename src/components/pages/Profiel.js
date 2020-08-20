@@ -54,6 +54,7 @@ export default function Profiel() {
               defaultValue={user.firstName}
               type="text"
               onChange={(event) => setFrontName(event.target.value)}
+              placeholder="Voornaam"
             />
           </Col>
         </Form.Group>
@@ -64,6 +65,7 @@ export default function Profiel() {
               defaultValue={user.lastName}
               type="text"
               onChange={(event) => setLastName(event.target.value)}
+              placeholder="Achternaam"
             />
           </Col>
         </Form.Group>
@@ -75,13 +77,19 @@ export default function Profiel() {
               type="text"
               onChange={(event) => setUserName(event.target.value)}
               required
+              placeholder="Gebruikersnaam"
             />
           </Col>
         </Form.Group>
 
         <Form.Group as={Row} controlId="formBasicEmail">
           <Col sm={{ span: 6, offset: 3 }}>
-            <Form.Control defaultValue={user.email} type="email" required />
+            <Form.Control
+              defaultValue={user.email}
+              type="email"
+              required
+              placeholder="Email"
+            />
           </Col>
         </Form.Group>
 
@@ -92,6 +100,7 @@ export default function Profiel() {
               type="tel"
               onChange={(event) => setPhone(event.target.value)}
               required
+              placeholder="Telefoonnummer"
             />
           </Col>
         </Form.Group>
@@ -128,6 +137,7 @@ export default function Profiel() {
               type="text"
               placeholder="Club"
               required
+              placeholder="Favoriete club"
             />
           </Col>
         </Form.Group>
