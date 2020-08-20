@@ -45,7 +45,7 @@ export default function SignUp() {
   }
 
   return (
-    <div class="col-6 offset-3">
+    <div class="col-7 offset-1">
       <form>
         <h3>Maak een account voor een nieuw lid</h3>
 
