@@ -19,7 +19,7 @@ export default function NavigationComponent() {
       <Navbar.Brand style={{ color: "#fff" }}>Sports Betting</Navbar.Brand>
       <Navbar.Toggle aria-controls="responsive-navbar-nav" />
       <Navbar.Collapse id="responsive-navbar-nav">
-        {renderControlsLoggedIn}
+        {token && renderControlsLoggedIn}
       </Navbar.Collapse>
     </Navbar>
   );

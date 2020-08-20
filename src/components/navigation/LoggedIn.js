@@ -17,6 +17,9 @@ export default function LoggedIn() {
         <NavDropdown
           title={`Welkom ${user.username}`}
           id="collasible-nav-dropdown"
+          style={{
+            margin: "0 2rem",
+          }}
         >
           <NavDropdown.Item href="/profiel">Profiel</NavDropdown.Item>
           {user.admin && (

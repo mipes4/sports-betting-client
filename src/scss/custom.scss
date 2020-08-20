@@ -45,7 +45,11 @@ html {
 }
 
 a.nav-link.active {
-  background: #903b4b !important;
+  background-image: Linear-gradient(
+    15deg,
+    rgba(199, 199, 199, 1) 20%,
+    rgba(255, 255, 255, 1) 20%
+  ) !important;
   border-radius: 0.25rem;
 }
 
