@@ -1,24 +1,36 @@
 import React from "react";
-// Styles
-import "./Sidebar.scss";
+import { findByLabelText } from "@testing-library/react";
 
 export default function Sidebar({ onSelect, tasks }) {
   return (
-    <nav
-      id="navbar-games"
-      className="navbar bg-light flex-column sidebar__container"
-      style={{ opacity: 0.3 }}
+    <div
+      style={{
+        padding: "4rem",
+        display: "flex",
+        flexDirection: "column",
+        height: "20rem",
+        justifyContent: "center",
+        alignItems: "start",
+        transform: "rotate(-10deg) translateY(-3rem)",
+        backgroundColor: "transparent",
+        border: "none",
+      }}
     >
       {tasks.map((task, i) => (
         <button
           key={i}
-          className="navbar-brand sidebar__btn"
-          href="#"
+          className="navbar-brand"
           onClick={() => onSelect(task)}
+          style={{
+            border: "none",
+            backgroundColor: "transparent",
+            color: "#c7c7c7",
+            fontWeight: "700",
+          }}
         >
           {task}
         </button>
       ))}
-    </nav>
+    </div>
   );
 }
