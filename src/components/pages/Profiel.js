@@ -135,7 +135,6 @@ export default function Profiel() {
               value={club}
               onChange={(event) => setClub(event.target.value)}
               type="text"
-              placeholder="Club"
               required
               placeholder="Favoriete club"
             />

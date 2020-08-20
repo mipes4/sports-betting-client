@@ -1,5 +1,4 @@
 import React from "react";
-import { findByLabelText } from "@testing-library/react";
 
 export default function Sidebar({ onSelect, tasks }) {
   return (

@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
-import { Form, Container, Button, Col } from "react-bootstrap";
+import { Form, Button } from "react-bootstrap";
 import { signUp } from "../../store/user/actions";
 
 export default function SignUp() {
