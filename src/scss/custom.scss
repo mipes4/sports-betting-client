@@ -11,14 +11,28 @@ h1 {
 }
 
 button.btn.btn-primary {
-  background: #903b4b;
+  background: #2581d4;
 }
 
 body,
 html {
   height: 100%;
   /* The image used */
-  background-image: url("../components/images/soccer-wallpaper-1920x1200-hd-f-WTG200617757.jpg");
+  // background-image: url("../components/images/soccer-wallpaper-1920x1200-hd-f-WTG200617757.jpg");
+
+  background-image: Linear-gradient(
+      150deg,
+      rgba(252, 6, 53, 0.8) 33%,
+      transparent 33%
+    ),
+    Linear-gradient(
+      100deg,
+      rgba(255, 255, 255, 0.7) 66%,
+      rgba(40, 186, 255, 0.7) 66%
+    ),
+    url("../components/images/soccer-wallpaper-1920x1200-hd-f-WTG200617757.jpg");
+  background-size: cover;
+  background-position: top;
 
   /* Full height */
   height: 100%;
