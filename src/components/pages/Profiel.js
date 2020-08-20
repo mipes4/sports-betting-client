@@ -143,7 +143,7 @@ export default function Profiel() {
         </Form.Group>
 
         <Form.Group as={Row} className="mt-5">
-          <Col sm={{ span: 9, offset: 2 }}>
+          <Col sm={{ span: 6, offset: 3 }}>
             <Button variant="primary" type="submit" onClick={submitForm}>
               Sla mijn profiel op
             </Button>
