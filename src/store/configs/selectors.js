@@ -17,3 +17,8 @@ export const selectCurrentRound = (state) => {
   // console.log("What returns my selectScores selector?", state.configs.rounds);
   return state.configs.currentRound;
 };
+
+export const selectTeams = (state) => {
+  // console.log("What returns my selectScores selector?", state.configs.rounds);
+  return state.configs.teams;
+};

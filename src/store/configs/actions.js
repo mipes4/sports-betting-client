@@ -5,6 +5,7 @@ export const ADD_SCORES = "ADD_SCORES";
 export const ADD_ROUNDS = "ADD_ROUNDS";
 export const CURRENT_GAME = "CURRENT_GAME";
 export const CURRENT_ROUND = "CURRENT_ROUND";
+export const ADD_TEAMS = "ADD_TEAMS";
 
 export function dataScores(data) {
   return { type: ADD_SCORES, payload: data };
@@ -12,6 +13,10 @@ export function dataScores(data) {
 
 export function dataRounds(data) {
   return { type: ADD_ROUNDS, payload: data };
+}
+
+export function dataTeams(data) {
+  return { type: ADD_TEAMS, payload: data };
 }
 
 export function fetchScores() {
@@ -30,6 +35,13 @@ export function fetchRounds() {
       dispatch(dataRounds(response.data));
     } catch (e) {}
   };
+}
+
+export async function fetchTeams(dispatch, getState) {
+  try {
+    const response = await Axios.get(`${apiUrl}/teams`);
+    dispatch(dataTeams(response.data));
+  } catch (e) {}
 }
 
 // updating prediction table to final score of the player.

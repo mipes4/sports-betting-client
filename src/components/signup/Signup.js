@@ -1,7 +1,10 @@
-import React, { useState } from "react";
-import { useDispatch } from "react-redux";
+import React, { useState, useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import { Form, Button } from "react-bootstrap";
 import { signUp } from "../../store/user/actions";
+import { fetchTeams } from "../../store/configs/actions";
+import { selectTeams } from "../../store/configs/selectors";
+import ClubPreference from "../ClubPreference/ClubPreference";
 
 export default function SignUp() {
   const dispatch = useDispatch();
@@ -14,12 +17,21 @@ export default function SignUp() {
   const [password, setPassword] = useState("");
   const [totaalToto, setTotaalToto] = useState(true);
   const [isAdmin, setIsAdmin] = useState(false);
+  const teams = useSelector(selectTeams);
+
+  console.log("club:", club);
+
+  useEffect(() => {
+    dispatch(fetchTeams);
+  }, []);
 
   function submitForm(event) {
     event.preventDefault();
-
+    // console.log("Userinput", userInput);
     // Which data is needed to sign up a new user?
     // Check model/table in DB
+    console.log("Inisde sumbit");
+    const favTeamSelected = teams.find((t) => t.name === club);
     dispatch(
       signUp(
         userName,
@@ -27,7 +39,7 @@ export default function SignUp() {
         lastName,
         telNumber,
         email,
-        club,
+        favTeamSelected.id,
         password,
         totaalToto,
         isAdmin
@@ -42,6 +54,7 @@ export default function SignUp() {
     setPassword("");
     setTotaalToto(true);
     setIsAdmin(false);
+    setClub("");
   }
 
   return (
@@ -99,15 +112,18 @@ export default function SignUp() {
           />
         </Form.Group>
 
-        <Form.Group controlId="formBasicClub">
+        {/*       <Form.Group controlId="formBasicClub">
           <Form.Control
-            value={club}
-            onChange={(event) => setClub(event.target.value)}
-            type="text"
+            value={userInput}
+            onChange={onClubChange}
+            onKeyDown={onKeyDown}
+             type="text"
             placeholder="Favoriete club"
             required
           />
-        </Form.Group>
+          {optionList}
+        </Form.Group> */}
+        <ClubPreference teams={teams} addTeam={(name) => setClub(name)} />
 
         <Form.Group controlId="formBasicPassword">
           <Form.Control
