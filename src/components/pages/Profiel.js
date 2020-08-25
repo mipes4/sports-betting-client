@@ -5,6 +5,9 @@ import { selectToken, selectUser } from "../../store/user/selectors";
 import { changeUser } from "../../store/user/actions";
 // styles
 import { Container, Form, Col, Button, Row } from "react-bootstrap";
+import ClubPreference from "../ClubPreference/ClubPreference";
+import { fetchTeams } from "../../store/configs/actions";
+import { selectTeams } from "../../store/configs/selectors";
 
 export default function Profiel() {
   const history = useHistory();
@@ -18,6 +21,11 @@ export default function Profiel() {
   const [password, setPassword] = useState("");
   const token = useSelector(selectToken);
   const user = useSelector(selectUser);
+  const teams = useSelector(selectTeams);
+  console.log("user:", user);
+  useEffect(() => {
+    dispatch(fetchTeams);
+  }, []);
 
   useEffect(() => {
     if (token === null) {
@@ -29,6 +37,9 @@ export default function Profiel() {
 
   function submitForm(event) {
     event.preventDefault();
+
+    const favTeamSelected = teams.find((t) => t.name === club);
+
     dispatch(
       changeUser(
         user.id,
@@ -37,7 +48,7 @@ export default function Profiel() {
         frontName,
         lastName,
         phone,
-        club,
+        favTeamSelected.id,
         totaalToto
         // password
       )
@@ -131,12 +142,10 @@ export default function Profiel() {
         {/* wv: hardcoded for now in the future we can make this a selector */}
         <Form.Group as={Row} controlId="formBasicClub">
           <Col sm={{ span: 6, offset: 3 }}>
-            <Form.Control
-              value={club}
-              onChange={(event) => setClub(event.target.value)}
-              type="text"
-              required
-              placeholder="Favoriete club"
+            <ClubPreference
+              defValue={user.team.name}
+              teams={teams}
+              addTeam={(name) => setClub(name)}
             />
           </Col>
         </Form.Group>
