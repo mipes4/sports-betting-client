@@ -66,7 +66,7 @@ export default function ClubPreference(props) {
         value={userInput}
         onChange={onClubChange}
         type="text"
-        placeholder={props.defValue}
+        placeholder={props.defValue ? props.defValue : "Favoriete club"}
         required
       />
       {optionList}
