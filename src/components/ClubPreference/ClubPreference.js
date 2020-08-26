@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { Form } from "react-bootstrap";
+import "./ClubPreference.css";
 
 export default function ClubPreference(props) {
   const [activeOption, setActiveOption] = useState(0);
