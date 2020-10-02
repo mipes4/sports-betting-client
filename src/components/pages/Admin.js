@@ -3,7 +3,7 @@ import { useSelector } from "react-redux";
 import { useHistory } from "react-router-dom";
 import { selectToken } from "../../store/user/selectors";
 // Components
-import Signup from "../signup/Signup";
+import Signup from "../AdminTasks/Signup";
 // Styles
 import "../../scss/Admin.scss";
 
@@ -18,6 +18,5 @@ export default function Admin() {
   }, [token, history]);
 
   // For now just one admintask => signup new user
-
   return <Signup />;
 }

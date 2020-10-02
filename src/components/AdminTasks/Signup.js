@@ -1,10 +1,12 @@
 import React, { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { Form, Button } from "react-bootstrap";
+// components
 import { signUp } from "../../store/user/actions";
 import { fetchTeams } from "../../store/configs/actions";
 import { selectTeams } from "../../store/configs/selectors";
 import ClubPreference from "../ClubPreference/ClubPreference";
+// styles
+import { Form, Button } from "react-bootstrap";
 
 export default function SignUp() {
   const dispatch = useDispatch();
@@ -58,11 +60,11 @@ export default function SignUp() {
   }
 
   return (
-    <div class="col-7 offset-1">
-      <form>
-        <h3>Maak een account voor een nieuw lid</h3>
-
+    <div class="col-6 offset-3">
+      <h3>Maak een account voor een nieuw lid</h3>
+      <Form>
         <Form.Group controlId="formBasicUserName">
+          <Form.Label>Gebruikersnaam</Form.Label>
           <Form.Control
             value={userName}
             onChange={(event) => setUserName(event.target.value)}
@@ -73,6 +75,7 @@ export default function SignUp() {
         </Form.Group>
 
         <Form.Group controlId="formBasicFirstName">
+          <Form.Label>Voornaam</Form.Label>
           <Form.Control
             value={firstName}
             onChange={(event) => setFirstName(event.target.value)}
@@ -83,6 +86,7 @@ export default function SignUp() {
         </Form.Group>
 
         <Form.Group controlId="formBasicLastName">
+          <Form.Label>Achternaam</Form.Label>
           <Form.Control
             value={lastName}
             onChange={(event) => setLastName(event.target.value)}
@@ -93,6 +97,7 @@ export default function SignUp() {
         </Form.Group>
 
         <Form.Group controlId="formBasicTelNumber">
+          <Form.Label>Telefoonnummer</Form.Label>
           <Form.Control
             value={telNumber}
             onChange={(event) => setTelNumber(event.target.value)}
@@ -103,6 +108,7 @@ export default function SignUp() {
         </Form.Group>
 
         <Form.Group controlId="formBasicEmail">
+          <Form.Label>Emailadres</Form.Label>
           <Form.Control
             value={email}
             onChange={(event) => setEmail(event.target.value)}
@@ -112,20 +118,10 @@ export default function SignUp() {
           />
         </Form.Group>
 
-        {/*       <Form.Group controlId="formBasicClub">
-          <Form.Control
-            value={userInput}
-            onChange={onClubChange}
-            onKeyDown={onKeyDown}
-             type="text"
-            placeholder="Favoriete club"
-            required
-          />
-          {optionList}
-        </Form.Group> */}
         <ClubPreference teams={teams} addTeam={(name) => setClub(name)} />
 
         <Form.Group controlId="formBasicPassword">
+          <Form.Label>Password</Form.Label>
           <Form.Control
             value={password}
             onChange={(event) => setPassword(event.target.value)}
@@ -137,15 +133,14 @@ export default function SignUp() {
 
         <Form.Group controlId="formBasicCheckbox">
           <Form.Check
+            inline
             label="Totaaltoto"
             checked={totaalToto}
             type="checkbox"
             onChange={() => setTotaalToto(!totaalToto)}
           />
-        </Form.Group>
-
-        <Form.Group controlId="formBasicCheckbox">
           <Form.Check
+            inline
             label="Admin"
             checked={isAdmin}
             type="checkbox"
@@ -153,12 +148,15 @@ export default function SignUp() {
           />
         </Form.Group>
 
-        <Form.Group className="mt-5">
-          <Button variant="primary" type="submit" onClick={submitForm}>
-            Aanmelden
-          </Button>
-        </Form.Group>
-      </form>
+        <Button
+          className="m-2"
+          variant="primary"
+          type="submit"
+          onClick={submitForm}
+        >
+          Aanmelden
+        </Button>
+      </Form>
     </div>
   );
 }
