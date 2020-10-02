@@ -30,7 +30,7 @@ export default function Login() {
   return (
     <Container>
       <div className="col-4 offset-4">
-        <Form>
+        <Form onSubmit={submitForm}>
           <Form.Group controlId="formBasicEmail">
             <Form.Label>Email address</Form.Label>
             <Form.Control
@@ -53,7 +53,7 @@ export default function Login() {
             />
           </Form.Group>
 
-          <Button variant="primary" type="submit" onClick={submitForm}>
+          <Button variant="primary" type="submit">
             Inloggen
           </Button>
         </Form>

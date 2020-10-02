@@ -27,18 +27,17 @@ export default function SignUp() {
 
   function submitForm(event) {
     event.preventDefault();
-    // const favTeamSelected = teams.find((t) => t.name === club);
-    // console.log(
-    //   userName,
-    //   firstName,
-    //   lastName,
-    //   telNumber,
-    //   email,
-    //   // favTeamSelected.id,
-    //   password,
-    //   totaalToto,
-    //   isAdmin
-    // );
+    console.log(
+      userName,
+      firstName,
+      lastName,
+      telNumber,
+      email,
+      club,
+      password,
+      totaalToto,
+      isAdmin
+    );
     // dispatch(
     //   signUp(
     //     userName,
@@ -67,7 +66,7 @@ export default function SignUp() {
   return (
     <div className="col-6 offset-3">
       <h3>Maak een account voor een nieuw lid</h3>
-      <Form>
+      <Form onSubmit={submitForm}>
         <Form.Group controlId="formBasicUserName">
           <Form.Label>Gebruikersnaam</Form.Label>
           <Form.Control
@@ -106,7 +105,7 @@ export default function SignUp() {
           <Form.Control
             value={telNumber}
             onChange={(event) => setTelNumber(event.target.value)}
-            type="email"
+            type="text"
             placeholder="Telefoonnummer"
             required
           />
@@ -155,12 +154,7 @@ export default function SignUp() {
           />
         </Form.Group>
 
-        <Button
-          className="m-2"
-          variant="primary"
-          type="submit"
-          onClick={submitForm}
-        >
+        <Button className="m-2" variant="primary" type="submit">
           Aanmelden
         </Button>
       </Form>
