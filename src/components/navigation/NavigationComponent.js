@@ -16,7 +16,7 @@ export default function NavigationComponent() {
       expand="lg"
       style={{ boxShadow: "none", backgroundColor: "transparent" }}
     >
-      <Navbar.Brand style={{ color: "#fff" }}>Sports Betting</Navbar.Brand>
+      <Navbar.Brand>Sports Betting</Navbar.Brand>
       <Navbar.Toggle aria-controls="responsive-navbar-nav" />
       <Navbar.Collapse id="responsive-navbar-nav">
         {token && renderControlsLoggedIn}

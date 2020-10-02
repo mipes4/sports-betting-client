@@ -1,65 +1,65 @@
-// Custom.scss
+// // Custom.scss
 
-@import "~bootswatch/dist/materia/variables";
-@import "node_modules/bootstrap/scss/bootstrap";
-@import "~bootswatch/dist/materia/bootswatch";
+// // @import "~bootswatch/dist/materia/variables";
+// // @import "node_modules/bootstrap/scss/bootstrap";
+// // @import "~bootswatch/dist/materia/bootswatch";
 
-h1 {
-  margin-top: 2.5rem;
-  margin-bottom: 1rem;
-  color: #eee;
-}
+// h1 {
+//   margin-top: 2.5rem;
+//   margin-bottom: 1rem;
+//   color: #eee;
+// }
 
-button.btn.btn-primary {
-  background: #2581d4;
-}
+// button.btn.btn-primary {
+//   background: #2581d4;
+// }
 
-body,
-html {
-  height: 100%;
-  /* The image used */
-  // background-image: url("../components/images/soccer-wallpaper-1920x1200-hd-f-WTG200617757.jpg");
+// body,
+// html {
+//   height: 100%;
+//   /* The image used */
+//   // background-image: url("../components/images/soccer-wallpaper-1920x1200-hd-f-WTG200617757.jpg");
 
-  background-image: Linear-gradient(
-      170deg,
-      rgba(252, 6, 53, 0.8) 33%,
-      transparent 33%
-    ),
-    Linear-gradient(
-      100deg,
-      rgba(255, 255, 255, 0.8) 66%,
-      rgba(40, 186, 255, 0.8) 66%
-    ),
-    url("../components/images/soccer-wallpaper-1920x1200-hd-f-WTG200617757.jpg");
-  background-size: cover;
-  background-position: top;
+//   background-image: Linear-gradient(
+//       170deg,
+//       rgba(252, 6, 53, 0.8) 33%,
+//       transparent 33%
+//     ),
+//     Linear-gradient(
+//       100deg,
+//       rgba(255, 255, 255, 0.8) 66%,
+//       rgba(40, 186, 255, 0.8) 66%
+//     ),
+//     url("../components/images/soccer-wallpaper-1920x1200-hd-f-WTG200617757.jpg");
+//   background-size: cover;
+//   background-position: top;
 
-  /* Full height */
-  height: 100%;
+//   /* Full height */
+//   height: 100%;
 
-  /* Center and scale the image nicely */
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-attachment: fixed;
-}
+//   /* Center and scale the image nicely */
+//   background-position: center;
+//   background-repeat: no-repeat;
+//   background-size: cover;
+//   background-attachment: fixed;
+// }
 
-a.nav-link.active {
-  background-image: Linear-gradient(
-    15deg,
-    rgba(199, 199, 199, 1) 20%,
-    rgba(255, 255, 255, 1) 20%
-  ) !important;
-  border-radius: 0.25rem;
-}
+// a.nav-link.active {
+//   background-image: Linear-gradient(
+//     15deg,
+//     rgba(199, 199, 199, 1) 20%,
+//     rgba(255, 255, 255, 1) 20%
+//   ) !important;
+//   border-radius: 0.25rem;
+// }
 
-div.mt-5.col-md-6.offset-md-3 {
-  background-color: #ced4da;
-  border-radius: 1rem;
-  padding: 1rem;
-}
+// div.mt-5.col-md-6.offset-md-3 {
+//   background-color: #ced4da;
+//   border-radius: 1rem;
+//   padding: 1rem;
+// }
 
-div.voorspellingen.container {
-  height: calc(100vh - 80px);
-  overflow-y: scroll;
-}
+// div.voorspellingen.container {
+//   height: calc(100vh - 80px);
+//   overflow-y: scroll;
+// }
