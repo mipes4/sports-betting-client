@@ -4,7 +4,7 @@ import {
   MATCH_PREDICTION_DATA,
   GAME_SCORES_DATA,
 } from "./actions";
-import { act } from "react-dom/test-utils";
+// import { act } from "react-dom/test-utils";
 
 const initialState = {
   data: [],

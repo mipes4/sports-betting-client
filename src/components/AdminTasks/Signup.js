@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 // components
-import { signUp } from "../../store/user/actions";
+// import { signUp } from "../../store/user/actions";
 import { fetchTeams } from "../../store/configs/actions";
 import { selectTeams } from "../../store/configs/selectors";
 import ClubPreference from "../ClubPreference/ClubPreference";
@@ -21,32 +21,37 @@ export default function SignUp() {
   const [isAdmin, setIsAdmin] = useState(false);
   const teams = useSelector(selectTeams);
 
-  console.log("club:", club);
-
   useEffect(() => {
     dispatch(fetchTeams);
   }, []);
 
   function submitForm(event) {
     event.preventDefault();
-    // console.log("Userinput", userInput);
-    // Which data is needed to sign up a new user?
-    // Check model/table in DB
-    console.log("Inisde sumbit");
-    const favTeamSelected = teams.find((t) => t.name === club);
-    dispatch(
-      signUp(
-        userName,
-        firstName,
-        lastName,
-        telNumber,
-        email,
-        favTeamSelected.id,
-        password,
-        totaalToto,
-        isAdmin
-      )
-    );
+    // const favTeamSelected = teams.find((t) => t.name === club);
+    // console.log(
+    //   userName,
+    //   firstName,
+    //   lastName,
+    //   telNumber,
+    //   email,
+    //   // favTeamSelected.id,
+    //   password,
+    //   totaalToto,
+    //   isAdmin
+    // );
+    // dispatch(
+    //   signUp(
+    //     userName,
+    //     firstName,
+    //     lastName,
+    //     telNumber,
+    //     email,
+    //     favTeamSelected.id,
+    //     password,
+    //     totaalToto,
+    //     isAdmin
+    //   )
+    // );
 
     setUserName("");
     setFirstName("");
@@ -60,7 +65,7 @@ export default function SignUp() {
   }
 
   return (
-    <div class="col-6 offset-3">
+    <div className="col-6 offset-3">
       <h3>Maak een account voor een nieuw lid</h3>
       <Form>
         <Form.Group controlId="formBasicUserName">
@@ -131,7 +136,7 @@ export default function SignUp() {
           />
         </Form.Group>
 
-        <Form.Group controlId="formBasicCheckbox">
+        <Form.Group controlId="formBasicCheckbox1">
           <Form.Check
             inline
             label="Totaaltoto"
@@ -139,6 +144,8 @@ export default function SignUp() {
             type="checkbox"
             onChange={() => setTotaalToto(!totaalToto)}
           />
+        </Form.Group>
+        <Form.Group controlId="formBasicCheckbox2">
           <Form.Check
             inline
             label="Admin"

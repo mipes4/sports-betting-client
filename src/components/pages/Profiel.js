@@ -22,7 +22,7 @@ export default function Profiel() {
   const token = useSelector(selectToken);
   const user = useSelector(selectUser);
   const teams = useSelector(selectTeams);
-  console.log("user:", user);
+
   useEffect(() => {
     dispatch(fetchTeams);
   }, []);

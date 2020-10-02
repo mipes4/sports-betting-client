@@ -19,7 +19,7 @@ import "./App.css";
 import TotoBoard from "./components/pages/TotoBoard";
 import MatchBoard from "./components/pages/MatchBoard";
 import GameBoard from "./components/pages/GameBoard";
-import Test from "./components/pages/Testpage/Testpage";
+// import Test from "./components/pages/Testpage/Testpage";
 
 function App() {
   const dispatch = useDispatch();
@@ -44,7 +44,7 @@ function App() {
         <Route path="/profiel" component={Profiel} />
         <Route path="/admin" component={Admin} />
         <Route path="/totoboard" component={TotoBoard} />
-        <Route path="/test" component={Test} />
+        {/* <Route path="/test" component={Test} /> */}
       </Switch>
     </div>
   );

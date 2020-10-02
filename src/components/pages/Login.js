@@ -5,7 +5,7 @@ import { selectToken } from "../../store/user/selectors";
 import { useDispatch, useSelector } from "react-redux";
 import { useHistory } from "react-router-dom";
 // styles
-import { Form, Button } from "react-bootstrap";
+import { Container, Form, Button } from "react-bootstrap";
 
 export default function Login() {
   const [email, setEmail] = useState("");
@@ -28,15 +28,14 @@ export default function Login() {
   }
 
   return (
-    <container>
-      <div class="col-4 offset-4">
+    <Container>
+      <div className="col-4 offset-4">
         <Form>
           <Form.Group controlId="formBasicEmail">
             <Form.Label>Email address</Form.Label>
             <Form.Control
               value={email}
               onChange={(event) => setEmail(event.target.value)}
-              type="email"
               type="email"
               placeholder="Enter email"
               required
@@ -59,6 +58,6 @@ export default function Login() {
           </Button>
         </Form>
       </div>
-    </container>
+    </Container>
   );
 }
