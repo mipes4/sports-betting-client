@@ -17,9 +17,6 @@ export default function LoggedIn() {
         <NavDropdown
           title={`Welkom ${user.username}`}
           id="collasible-nav-dropdown"
-          style={{
-            margin: "0 2rem",
-          }}
         >
           <NavDropdown.Item href="/profiel">Profiel</NavDropdown.Item>
           {user.admin && (
@@ -33,7 +30,7 @@ export default function LoggedIn() {
 
   return (
     <>
-      <Nav variant="pills" style={{ width: "100%" }} fill>
+      <Nav variant="pills" className="mr-auto">
         <NavbarItem path="/" exact={true} linkText="Home" />
         <NavbarItem path="/voorspellingen" linkText="Voorspellingen" />
         <NavbarItem path="/regels" linkText="Regels" />

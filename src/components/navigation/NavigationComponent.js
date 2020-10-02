@@ -11,16 +11,16 @@ export default function NavigationComponent() {
   const renderControlsLoggedIn = token ? <LoggedIn /> : null;
 
   return (
-    <Navbar
-      collapseOnSelect
-      expand="lg"
-      style={{ boxShadow: "none", backgroundColor: "transparent" }}
-    >
+    <Navbar href="#home" collapseOnSelect bg="light" expand="lg">
       <Navbar.Brand>Sports Betting</Navbar.Brand>
-      <Navbar.Toggle aria-controls="responsive-navbar-nav" />
-      <Navbar.Collapse id="responsive-navbar-nav">
-        {token && renderControlsLoggedIn}
-      </Navbar.Collapse>
+      {token && (
+        <>
+          <Navbar.Toggle aria-controls="responsive-navbar-nav" />
+          <Navbar.Collapse id="responsive-navbar-nav">
+            {renderControlsLoggedIn}
+          </Navbar.Collapse>
+        </>
+      )}
     </Navbar>
   );
 }
