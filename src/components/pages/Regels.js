@@ -1,8 +1,8 @@
-import React, { useEffect } from 'react';
-import { Card, Accordion, Button, Container } from 'react-bootstrap';
-import { useSelector } from 'react-redux';
-import { selectToken } from '../../store/user/selectors';
-import { useHistory } from 'react-router-dom';
+import React, { useEffect } from "react";
+import { Card, Accordion, Button, Container, ListGroup } from "react-bootstrap";
+import { useSelector } from "react-redux";
+import { selectToken } from "../../store/user/selectors";
+import { useHistory } from "react-router-dom";
 
 export default function Regels() {
   const token = useSelector(selectToken);
@@ -10,7 +10,7 @@ export default function Regels() {
 
   useEffect(() => {
     if (token === null) {
-      history.push('/login');
+      history.push("/login");
     }
   }, [token, history]);
 
@@ -25,18 +25,22 @@ export default function Regels() {
           </Card.Header>
           <Accordion.Collapse eventKey="0">
             <Card.Body>
-              <ul>
-                <li>
+              <ListGroup variant="flush">
+                <ListGroup.Item>
                   Het aantal goals per team goed voorspeld: 2 punten (dus 2x 2
                   punten te verdienen)
-                </li>
-                <li>Een winner of gelijkspel goed voorspeld: 5 punten</li>
-                <li>Een volledige uitslag goed voorspeld: 1 punt</li>
-                <p>
+                </ListGroup.Item>
+                <ListGroup.Item>
+                  Een winner of gelijkspel goed voorspeld: 5 punten
+                </ListGroup.Item>
+                <ListGroup.Item>
+                  Een volledige uitslag goed voorspeld: 1 punt
+                </ListGroup.Item>
+                <ListGroup.Item>
                   De punten tellen op, dus als de gehele uitslag goed is
                   voorspeld verdien je in totaal 10 punten.
-                </p>
-              </ul>
+                </ListGroup.Item>
+              </ListGroup>
             </Card.Body>
           </Accordion.Collapse>
         </Card>

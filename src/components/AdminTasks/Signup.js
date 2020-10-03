@@ -27,17 +27,6 @@ export default function SignUp() {
 
   function submitForm(event) {
     event.preventDefault();
-    console.log(
-      username,
-      firstName,
-      lastName,
-      telNumber,
-      email,
-      getTeamId(club),
-      password,
-      totaalToto,
-      isAdmin
-    );
     dispatch(
       signUp(
         username,
