@@ -2,7 +2,7 @@ import React from "react";
 // styles
 import { Form } from "react-bootstrap";
 
-export default function ClubPreference({ teams, addTeam }) {
+export default function ClubPreference({ teams, addTeam, defaultVal }) {
   return (
     <Form.Group controlId="formBasicClub">
       <Form.Label>Favoriete club</Form.Label>
@@ -11,7 +11,7 @@ export default function ClubPreference({ teams, addTeam }) {
           as="select"
           required
           onChange={(e) => addTeam(e.target.value)}
-          defaultValue=""
+          defaultValue={defaultVal}
         >
           <option></option>
           {teams.map((team, i) => (

@@ -116,7 +116,11 @@ export default function SignUp() {
           />
         </Form.Group>
 
-        <ClubPreference teams={teams} addTeam={(name) => setClub(name)} />
+        <ClubPreference
+          defaultval=""
+          teams={teams}
+          addTeam={(name) => setClub(name)}
+        />
 
         <Form.Group controlId="formBasicPassword">
           <Form.Label>Password</Form.Label>
