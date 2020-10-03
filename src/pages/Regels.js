@@ -1,8 +1,10 @@
 import React, { useEffect } from "react";
-import { Card, Accordion, Button, Container, ListGroup } from "react-bootstrap";
-import { useSelector } from "react-redux";
-import { selectToken } from "../../store/user/selectors";
 import { useHistory } from "react-router-dom";
+import { useSelector } from "react-redux";
+// redux
+import { selectToken } from "../store/user/selectors";
+// styles
+import { Card, Accordion, Button, Container, ListGroup } from "react-bootstrap";
 
 export default function Regels() {
   const token = useSelector(selectToken);

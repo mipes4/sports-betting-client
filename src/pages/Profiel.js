@@ -1,14 +1,18 @@
-import React, { useState, useEffect } from "react";
-import { useDispatch, useSelector } from "react-redux";
+import React, { useEffect, useState } from "react";
+import { useSelector, useDispatch } from "react-redux";
+import { useHistory } from "react-router-dom";
+// redux
+import { selectToken, selectUser } from "../store/user/selectors";
+import { changeUser } from "../store/user/actions";
+import { fetchTeams } from "../store/configs/actions";
+import { selectTeams } from "../store/configs/selectors";
 // components
-import { signUp } from "../../store/user/actions";
-import { fetchTeams } from "../../store/configs/actions";
-import { selectTeams } from "../../store/configs/selectors";
-import ClubPreference from "../ClubPreference/ClubPreference";
+import ClubPreference from "../components/ClubPreference/ClubPreference";
 // styles
 import { Container, Form, Button } from "react-bootstrap";
 
-export default function SignUp() {
+export default function Profiel() {
+  const history = useHistory();
   const dispatch = useDispatch();
   const [username, setUsername] = useState("");
   const [firstName, setFirstName] = useState("");
@@ -20,15 +24,28 @@ export default function SignUp() {
   const [totaalToto, setTotaalToto] = useState(true);
   const [isAdmin, setIsAdmin] = useState(false);
   const teams = useSelector(selectTeams);
+  const token = useSelector(selectToken);
+  const user = useSelector(selectUser);
 
   useEffect(() => {
     dispatch(fetchTeams);
   }, []);
 
+  useEffect(() => {
+    if (token === null) {
+      history.push("/login");
+    }
+  }, [token, history]);
+
+  if (!user.email) return <p>Loading...</p>;
+
   function submitForm(event) {
     event.preventDefault();
+
+    const favTeamSelected = teams.find((t) => t.name === club);
+
     dispatch(
-      signUp(
+      changeUser(
         username,
         firstName,
         lastName,
@@ -40,16 +57,7 @@ export default function SignUp() {
         isAdmin
       )
     );
-
-    setUsername("");
-    setFirstName("");
-    setLastName("");
-    setTelNumber("");
-    setEmail("");
     setPassword("");
-    setTotaalToto(true);
-    setIsAdmin(false);
-    setClub("");
   }
 
   function getTeamId(teamName) {
@@ -58,7 +66,6 @@ export default function SignUp() {
 
   return (
     <Container>
-      <h3>Maak een account voor een nieuw lid</h3>
       <Form onSubmit={submitForm}>
         <Form.Group controlId="formBasicUserName">
           <Form.Label>Gebruikersnaam</Form.Label>
@@ -147,8 +154,8 @@ export default function SignUp() {
           />
         </Form.Group>
 
-        <Button className="m-2" variant="primary" type="submit">
-          Aanmelden
+        <Button variant="primary" type="submit">
+          Sla mijn profiel op
         </Button>
       </Form>
     </Container>

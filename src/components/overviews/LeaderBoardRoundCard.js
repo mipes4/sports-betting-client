@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useHistory } from "react-router-dom";
+// redux
 import { fetchPredictions } from "../../store/predictions/actions";
 import { selectPredictions } from "../../store/predictions/selectors";
-import { Table, Container, Row, Col, Button } from "react-bootstrap";
 import {
   fetchCurrentGame,
   fetchCurrentRound,
@@ -16,8 +16,11 @@ import { fetchGameScores } from "../../store/predictions/actions";
 import { fetchCurRoundMatchesAndPredictions } from "../../store/matches/actions";
 import { selectUser } from "../../store/user/selectors";
 import { selectCurrentRoundMatches } from "../../store/matches/selectors";
-import MatchEntry from "../../components/matches/MatchEntry";
 import { fetchScores } from "../../store/configs/actions";
+//styles
+import { Table, Container, Row, Col, Button } from "react-bootstrap";
+// components
+import MatchEntry from "../../components/matches/MatchEntry";
 
 export default function LeaderBoardRoundCard() {
   const dispatch = useDispatch();

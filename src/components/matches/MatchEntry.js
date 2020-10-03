@@ -1,16 +1,19 @@
 import React, { useState } from "react";
+import { Link } from "react-router-dom";
 import moment from "moment";
+import { useDispatch, useSelector } from "react-redux";
+// assets
 import logoDummy from "../images/logoDummy.png";
 import { ReactComponent as Clock } from "../images/clock.svg";
-import { useDispatch, useSelector } from "react-redux";
+// redux
 import {
   postPrediction,
   changePrediction,
 } from "../../store/predictions/actions";
-import { Button, Col, Form } from "react-bootstrap";
 import { selectScores } from "../../store/configs/selectors";
 import { selectUser } from "../../store/user/selectors";
-import { Link } from "react-router-dom";
+// styles
+import { Button, Col, Form } from "react-bootstrap";
 
 export default function MatchEntry(props) {
   const dispatch = useDispatch();

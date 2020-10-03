@@ -1,7 +1,9 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { fetchPredictions } from "../../store/predictions/actions";
-import { selectPredictions } from "../../store/predictions/selectors";
+// redux
+import { fetchPredictions } from "../store/predictions/actions";
+import { selectPredictions } from "../store/predictions/selectors";
+// styles
 import { Table, Container } from "react-bootstrap";
 
 export default function TotoBoard() {

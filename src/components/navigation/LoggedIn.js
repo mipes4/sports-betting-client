@@ -1,5 +1,6 @@
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
+// redux
 import { selectUser } from "../../store/user/selectors";
 import { logOut } from "../../store/user/actions";
 // components

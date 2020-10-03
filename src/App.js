@@ -3,23 +3,24 @@ import { Switch, Route } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { selectAppLoading } from "./store/appState/selectors";
 import { getUserWithStoredToken } from "./store/user/actions";
+// pages
+import Admin from "./pages/Admin/Admin";
+// import Test from "./components/pages/Testpage/Testpage";
+import GameBoard from "./pages/GameBoard";
+import Home from "./pages/Home";
+import Login from "./pages/Login";
+import MatchBoard from "./pages/MatchBoard";
+import Profiel from "./pages/Profiel";
+import Regels from "./pages/Regels";
+import TotoBoard from "./pages/TotoBoard";
+import Voorspellingen from "./pages/Voorspellingen";
 // components
-import Home from "./components/pages/Home";
-import Voorspellingen from "./components/pages/Voorspellingen";
-import Regels from "./components/pages/Regels";
-import Login from "./components/pages/Login";
-import Profiel from "./components/pages/Profiel";
-import Admin from "./components/pages/Admin";
 import NavigationComponent from "./components/navigation/NavigationComponent";
 import MessageBox from "./components/messageBox/MessageBox";
 import Loading from "./components/loading/Loading";
 // styles
-// import "./bootstrap.min.css";
 import "./App.css";
-import TotoBoard from "./components/pages/TotoBoard";
-import MatchBoard from "./components/pages/MatchBoard";
-import GameBoard from "./components/pages/GameBoard";
-// import Test from "./components/pages/Testpage/Testpage";
+// import "./bootstrap.min.css";
 
 function App() {
   const dispatch = useDispatch();

@@ -1,4 +1,5 @@
 import React from "react";
+// styles
 import { Spinner } from "react-bootstrap";
 import "./spinner.css";
 

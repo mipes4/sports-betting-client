@@ -1,10 +1,12 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { fetchMatchPredictions } from "../../store/predictions/actions";
-import { selectPredictions } from "../../store/predictions/selectors";
-import { Table, Container } from "react-bootstrap";
 import { useParams } from "react-router-dom";
 import moment from "moment";
+// redux
+import { fetchMatchPredictions } from "../store/predictions/actions";
+import { selectPredictions } from "../store/predictions/selectors";
+// styles
+import { Table, Container } from "react-bootstrap";
 
 export default function MatchBoard(props) {
   const dispatch = useDispatch();

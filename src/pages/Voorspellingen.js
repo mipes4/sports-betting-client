@@ -1,14 +1,17 @@
 import React, { useEffect } from "react";
-// import MatchEntry from "../matches/MatchEntry";
-import { fetchMatchesAndPredictions } from "../../store/matches/actions";
-import { useDispatch, useSelector } from "react-redux";
-// import { selectMatches } from "../../store/matches/selectors";
-import { selectUser } from "../../store/user/selectors";
-import { selectToken } from "../../store/user/selectors";
-import { Container } from "react-bootstrap";
 import { useHistory } from "react-router-dom";
-// import { appLoading } from "../../store/appState/actions";
-import TableMatches from "../matches/TableMatches";
+import { useDispatch, useSelector } from "react-redux";
+// redux
+import { fetchMatchesAndPredictions } from "../store/matches/actions";
+import { selectUser } from "../store/user/selectors";
+import { selectToken } from "../store/user/selectors";
+// import { selectMatches } from "../store/matches/selectors";
+// import { appLoading } from "../store/appState/actions";
+// components
+import TableMatches from "../components/matches/TableMatches";
+// import MatchEntry from "../components/matches/MatchEntry";
+// styles
+import { Container } from "react-bootstrap";
 
 export default function Voorspellingen() {
   const dispatch = useDispatch();

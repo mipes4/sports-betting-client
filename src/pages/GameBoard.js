@@ -1,9 +1,11 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { fetchGameScores } from "../../store/predictions/actions";
-import { selectPredictions } from "../../store/predictions/selectors";
-import { Table, Container } from "react-bootstrap";
 import { useParams } from "react-router-dom";
+// redux
+import { fetchGameScores } from "../store/predictions/actions";
+import { selectPredictions } from "../store/predictions/selectors";
+// styles
+import { Table, Container } from "react-bootstrap";
 
 export default function GameBoard() {
   const dispatch = useDispatch();
