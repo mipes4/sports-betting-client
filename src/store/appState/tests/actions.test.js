@@ -30,10 +30,20 @@ describe("appState", () => {
     const expected = {
       type: CLEAR_MESSAGE,
     };
-    test("should return an action object with type and no payload", () => {
+    test("should return an object with type and no payload", () => {
       expect(clearMessage()).toEqual(expected);
       expect(clearMessage().type).toBe(CLEAR_MESSAGE);
       expect(clearMessage().payload).toBeUndefined;
+    });
+  });
+  describe("#appLoading", () => {
+    const expected = {
+      type: APP_LOADING,
+    };
+    test("should return an object with type and no payload", () => {
+      expect(appLoading()).toEqual(expected);
+      expect(appLoading().type).toBe(APP_LOADING);
+      expect(appLoading().payload).toBeUndefined;
     });
   });
 });
