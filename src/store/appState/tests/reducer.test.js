@@ -1,5 +1,10 @@
 import reducer from "../reducer";
-import { APP_LOADING, APP_DONE_LOADING, CLEAR_MESSAGE } from "../actions";
+import {
+  APP_LOADING,
+  APP_DONE_LOADING,
+  CLEAR_MESSAGE,
+  SET_MESSAGE,
+} from "../actions";
 
 describe("appStateReducer", () => {
   describe("if given no state and a random action", () => {
@@ -52,6 +57,31 @@ describe("appStateReducer", () => {
       const newState = reducer(state, action);
       expect(newState).toEqual({ loading: true, message: null });
       expect(newState.message).toBeNull;
+      expect(newState.loading).toBe(true);
+    });
+  });
+  describe("when given a SET_MESSAGE action type", () => {
+    const state = {
+      loading: true,
+      message: null,
+    };
+    const variant = "success";
+    const dismissable = true;
+    const text = "test_message";
+    const action = {
+      type: SET_MESSAGE,
+      payload: { variant, dismissable, text },
+    };
+    test("returns a new state with the payload containing correct values", () => {
+      const newState = reducer(state, action);
+      expect(newState).toEqual({
+        loading: true,
+        message: action.payload,
+      });
+      expect(newState.message).toBe(action.payload);
+      expect(newState.message.variant).toBe("success");
+      expect(newState.message.dismissable).toBe(true);
+      expect(newState.message.text).toBe("test_message");
       expect(newState.loading).toBe(true);
     });
   });
