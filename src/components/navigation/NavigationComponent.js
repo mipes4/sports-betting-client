@@ -1,6 +1,8 @@
 import React from "react";
 import { useSelector } from "react-redux";
 import { selectToken } from "../../store/user/selectors";
+// assets
+import ball from "../../assets/football.png";
 // components
 import LoggedIn from "./LoggedIn";
 // styles
@@ -12,6 +14,8 @@ export default function NavigationComponent() {
 
   return (
     <Navbar href="#home" collapseOnSelect bg="light" expand="lg">
+      <img src={ball} style={{ width: "50px" }} />
+      &nbsp;
       <Navbar.Brand>Sports Betting</Navbar.Brand>
       {token && (
         <>
