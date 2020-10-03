@@ -30,7 +30,7 @@ export default function LeaderBoardRoundCard() {
   const { gameScores } = useSelector(selectPredictions);
   const currentMatches = useSelector(selectCurrentRoundMatches);
   const [topThreeScores, setTopThree] = useState([]);
-  console.log("currentMatches:", currentMatches);
+  // console.log("currentMatches:", currentMatches);
 
   useEffect(() => {
     if (totoScores.length) {
@@ -49,13 +49,13 @@ export default function LeaderBoardRoundCard() {
 
   useEffect(() => {
     if (gameId) {
-      console.log("gameId:", gameId);
+      // console.log("gameId:", gameId);
       dispatch(fetchGameScores(gameId));
     }
   }, [gameId]);
 
   useEffect(() => {
-    console.log("round:", round);
+    // console.log("round:", round);
     if (round) {
       dispatch(
         fetchCurRoundMatchesAndPredictions(user.id, round.replace(/\D/g, ""))

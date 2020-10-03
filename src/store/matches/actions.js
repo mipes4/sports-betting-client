@@ -27,7 +27,7 @@ export function fetchCurRoundMatchesAndPredictions(userId, roundNbr) {
       const response = await Axios.get(
         `${apiUrl}/matches/user/${userId}/round/${roundNbr}`
       );
-      console.log("current data:", response.data);
+      // console.log("current data:", response.data);
       dispatch(currentRoundData(response.data));
     } catch (e) {}
   };
