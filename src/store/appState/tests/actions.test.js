@@ -19,8 +19,9 @@ describe("appState", () => {
       type: SET_MESSAGE,
       payload: { variant, dismissable, text },
     };
-    test("should return an object containing type and payload", () => {
+    test("should return an object with type and payload", () => {
       expect(setMessage(variant, dismissable, text)).toEqual(expected);
+      expect(setMessage(variant, dismissable, text).type).toBe(SET_MESSAGE);
       expect(setMessage(variant, dismissable, text).payload).toEqual(
         expected.payload
       );
@@ -44,6 +45,16 @@ describe("appState", () => {
       expect(appLoading()).toEqual(expected);
       expect(appLoading().type).toBe(APP_LOADING);
       expect(appLoading().payload).toBeUndefined;
+    });
+  });
+  describe("#appDoneLoading", () => {
+    const expected = {
+      type: APP_DONE_LOADING,
+    };
+    test("should return an object with type and no payload", () => {
+      expect(appDoneLoading()).toEqual(expected);
+      expect(appDoneLoading().type).toBe(APP_DONE_LOADING);
+      expect(appDoneLoading().payload).toBeUndefined;
     });
   });
 });
