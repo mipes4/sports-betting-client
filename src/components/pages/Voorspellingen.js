@@ -28,7 +28,7 @@ export default function Voorspellingen() {
 
   return (
     <div style={{ display: "flex" }}>
-      <nav id="navbar-games" class="navbar navbar-light bg-light">
+      <nav id="navbar-games" className="navbar navbar-light bg-light">
         {/* <a class="navbar-brand" href="#">
           Voorspellingen
         </a> */}

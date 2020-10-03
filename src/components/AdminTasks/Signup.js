@@ -1,16 +1,16 @@
 import React, { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 // components
-// import { signUp } from "../../store/user/actions";
+import { signUp } from "../../store/user/actions";
 import { fetchTeams } from "../../store/configs/actions";
 import { selectTeams } from "../../store/configs/selectors";
 import ClubPreference from "../ClubPreference/ClubPreference";
 // styles
-import { Form, Button } from "react-bootstrap";
+import { Container, Form, Button } from "react-bootstrap";
 
 export default function SignUp() {
   const dispatch = useDispatch();
-  const [userName, setUserName] = useState("");
+  const [username, setUsername] = useState("");
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
   const [telNumber, setTelNumber] = useState("");
@@ -28,31 +28,31 @@ export default function SignUp() {
   function submitForm(event) {
     event.preventDefault();
     console.log(
-      userName,
+      username,
       firstName,
       lastName,
       telNumber,
       email,
-      club,
+      getTeamId(club),
       password,
       totaalToto,
       isAdmin
     );
-    // dispatch(
-    //   signUp(
-    //     userName,
-    //     firstName,
-    //     lastName,
-    //     telNumber,
-    //     email,
-    //     favTeamSelected.id,
-    //     password,
-    //     totaalToto,
-    //     isAdmin
-    //   )
-    // );
+    dispatch(
+      signUp(
+        username,
+        firstName,
+        lastName,
+        telNumber,
+        email,
+        getTeamId(club),
+        password,
+        totaalToto,
+        isAdmin
+      )
+    );
 
-    setUserName("");
+    setUsername("");
     setFirstName("");
     setLastName("");
     setTelNumber("");
@@ -63,15 +63,19 @@ export default function SignUp() {
     setClub("");
   }
 
+  function getTeamId(teamName) {
+    return teams.find((team) => team.name === teamName).id;
+  }
+
   return (
-    <div className="col-6 offset-3">
+    <Container>
       <h3>Maak een account voor een nieuw lid</h3>
       <Form onSubmit={submitForm}>
         <Form.Group controlId="formBasicUserName">
           <Form.Label>Gebruikersnaam</Form.Label>
           <Form.Control
-            value={userName}
-            onChange={(event) => setUserName(event.target.value)}
+            value={username}
+            onChange={(event) => setUsername(event.target.value)}
             type="text"
             placeholder="Gebruikersnaam"
             required
@@ -158,6 +162,6 @@ export default function SignUp() {
           Aanmelden
         </Button>
       </Form>
-    </div>
+    </Container>
   );
 }
