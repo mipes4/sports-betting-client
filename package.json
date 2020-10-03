@@ -26,6 +26,7 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
+    "testV": "react-scripts test --verbose",
     "eject": "react-scripts eject"
   },
   "eslintConfig": {
