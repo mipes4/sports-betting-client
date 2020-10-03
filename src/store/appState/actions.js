@@ -8,7 +8,6 @@ export const CLEAR_MESSAGE = "CLEAR_MESSAGE";
 export const appLoading = () => ({ type: APP_LOADING });
 export const appDoneLoading = () => ({ type: APP_DONE_LOADING });
 export const clearMessage = () => ({ type: CLEAR_MESSAGE });
-
 export const setMessage = (variant, dismissable, text) => {
   return {
     type: SET_MESSAGE,
@@ -19,6 +18,8 @@ export const setMessage = (variant, dismissable, text) => {
     },
   };
 };
+
+/*  This probably should not be a thunk, the dispatch could be a parameter comming from the the function that invokes showMessageWithTimeout and passes the dispatch function as a argument */
 
 export const showMessageWithTimeout = (
   variant,

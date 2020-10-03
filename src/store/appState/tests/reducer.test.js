@@ -25,6 +25,7 @@ describe("#appStateReducer", () => {
       expect(newState.message).toBeNull;
     });
   });
+
   describe("#APP_LOADING action type", () => {
     const initialState = {
       loading: false,
