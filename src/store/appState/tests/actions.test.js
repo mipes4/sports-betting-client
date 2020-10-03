@@ -26,4 +26,14 @@ describe("appState", () => {
       );
     });
   });
+  describe("#clearMessage", () => {
+    const expected = {
+      type: CLEAR_MESSAGE,
+    };
+    test("should return an action object with type and no payload", () => {
+      expect(clearMessage()).toEqual(expected);
+      expect(clearMessage().type).toBe(CLEAR_MESSAGE);
+      expect(clearMessage().payload).toBeUndefined;
+    });
+  });
 });
