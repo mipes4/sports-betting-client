@@ -19,6 +19,8 @@ export const setMessage = (variant, dismissable, text) => {
   };
 };
 
+/*  This probably should not be a thunk, the dispatch could be a parameter comming from the the function that invokes showMessageWithTimeout and passes the dispatch function as a argument */
+
 export const showMessageWithTimeout = (
   variant,
   dismissable,

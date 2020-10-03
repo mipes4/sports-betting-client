@@ -58,3 +58,5 @@ describe("appState", () => {
     });
   });
 });
+
+/* To do: test showMessageWithTimeout. For this the functions probably needs to be converterd in to a normal function instead of being a thunk. */
