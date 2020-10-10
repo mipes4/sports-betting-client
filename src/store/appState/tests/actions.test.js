@@ -7,7 +7,7 @@ import {
   appDoneLoading,
   clearMessage,
   setMessage,
-  showMessageWithTimeout,
+  // showMessageWithTimeout,
 } from "../actions";
 
 describe("appState", () => {

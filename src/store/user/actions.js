@@ -45,7 +45,7 @@ export const signUp = (
   totaalToto,
   isAdmin
 ) => {
-  return async (dispatch, getState) => {
+  return async (dispatch, _getState) => {
     dispatch(appLoading());
     try {
       const response = await Axios.post(`${apiUrl}/signup`, {
@@ -77,7 +77,7 @@ export const signUp = (
 };
 
 export const login = (email, password) => {
-  return async (dispatch, getState) => {
+  return async (dispatch, _getState) => {
     dispatch(appLoading());
     try {
       const response = await Axios.post(`${apiUrl}/login`, {
@@ -145,7 +145,7 @@ export const changeUser = (
   totaalToto
   // password
 ) => {
-  return async (dispatch, getState) => {
+  return async (dispatch, _getState) => {
     dispatch(appLoading());
     try {
       const response = await Axios.patch(`${apiUrl}/change_me/${userId}`, {
