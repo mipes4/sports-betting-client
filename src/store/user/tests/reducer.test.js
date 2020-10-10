@@ -21,6 +21,7 @@ describe("#userReducer", () => {
       const action = { type: LOGIN_SUCCESS, payload: userWithToken };
       const newState = reducer(initialState, action);
       expect(newState).toEqual(userWithToken);
+      expect(newState.token).not.toBeNull();
     });
   });
   describe("#LOG_OUT action type", () => {
@@ -38,6 +39,23 @@ describe("#userReducer", () => {
       const newState = reducer(userWithToken, action);
       expect(newState).toEqual(initialState);
       expect(newState.token).toBeNull();
+    });
+  });
+  describe("#TOKEN_STILL_VALID action type", () => {
+    const initialState = {
+      token: null,
+      email: null,
+    };
+    const userWithToken = {
+      token: "test_token",
+      email: "test_email",
+      userDetails: "test_user_details",
+    };
+    test("should return a new state with user, including token property", () => {
+      const action = { type: TOKEN_STILL_VALID, payload: userWithToken };
+      const newState = reducer(initialState, action);
+      expect(newState).toEqual(userWithToken);
+      expect(newState.token).not.toBeNull();
     });
   });
 });
