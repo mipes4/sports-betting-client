@@ -15,7 +15,13 @@ export default function LoggedIn() {
   const renderDropDown = () => {
     return (
       <Nav>
-        {user.team && <img src={user.team.logo} style={{ width: "50px" }} />}
+        {user.team && (
+          <img
+            src={user.team.logo}
+            style={{ width: "50px" }}
+            alt="logo favorite team"
+          />
+        )}
         <NavDropdown
           title={`Welkom ${user.username}`}
           id="collasible-nav-dropdown"

@@ -14,7 +14,7 @@ export default function NavigationComponent() {
 
   return (
     <Navbar href="#home" collapseOnSelect bg="light" expand="lg">
-      <img src={ball} style={{ width: "50px" }} />
+      <img src={ball} style={{ width: "50px" }} alt="soccer ball" />
       &nbsp;
       <Navbar.Brand>Sports Betting</Navbar.Brand>
       {token && (
