@@ -10,7 +10,7 @@ import GameBoard from "./pages/GameBoard";
 import Home from "./pages/Home";
 import Login from "./pages/Login";
 import MatchBoard from "./pages/MatchBoard";
-import Profiel from "./pages/Profiel";
+import Profiel from "./pages/Profiel/Profiel";
 import Regels from "./pages/Regels";
 import TotoBoard from "./pages/TotoBoard";
 import Voorspellingen from "./pages/Voorspellingen";

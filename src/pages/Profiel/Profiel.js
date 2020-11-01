@@ -2,12 +2,12 @@ import React, { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { useHistory } from "react-router-dom";
 // redux
-import { selectToken, selectUser } from "../store/user/selectors";
-import { changeUser } from "../store/user/actions";
-import { fetchTeams } from "../store/configs/actions";
-import { selectTeams } from "../store/configs/selectors";
+import { selectToken, selectUser } from "../../store/user/selectors";
+import { changeUser } from "../../store/user/actions";
+import { fetchTeams } from "../../store/configs/actions";
+import { selectTeams } from "../../store/configs/selectors";
 // components
-import ClubPreference from "../components/ClubPreference/ClubPreference";
+import ClubPreference from "../../components/ClubPreference/ClubPreference";
 // styles
 import { Container, Row, Col, Form, Button } from "react-bootstrap";
 
