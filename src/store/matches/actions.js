@@ -12,8 +12,9 @@ export function currentRoundData(data) {
   return { type: CURRENT_ROUND_MATCHES, payload: data };
 }
 
-export function fetchMatchesAndPredictions(userId) {
+export function fetchMatchesAndPredictions() {
   return async (dispatch, getState) => {
+    const userId = getState().user.id;
     try {
       const response = await Axios.get(`${apiUrl}/matches/user/${userId}`);
       dispatch(dataFullyFetched(response.data));

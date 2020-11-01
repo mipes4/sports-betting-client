@@ -14,6 +14,7 @@ import Profiel from "./pages/Profiel";
 import Regels from "./pages/Regels";
 import TotoBoard from "./pages/TotoBoard";
 import Voorspellingen from "./pages/Voorspellingen";
+// import Testpage from "./pages/Testpage/Testpage";
 // components
 import NavigationComponent from "./components/navigation/NavigationComponent";
 import MessageBox from "./components/messageBox/MessageBox";
@@ -45,7 +46,7 @@ function App() {
         <Route path="/profiel" component={Profiel} />
         <Route path="/admin" component={Admin} />
         <Route path="/totoboard" component={TotoBoard} />
-        {/* <Route path="/test" component={Test} /> */}
+        {/* <Route path="/test" component={Testpage} /> */}
       </Switch>
     </div>
   );

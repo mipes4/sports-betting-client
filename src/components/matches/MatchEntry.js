@@ -72,7 +72,7 @@ export default function MatchEntry(props) {
         >
           {`${props.round} | ${moment
             .unix(props.eventTimestamp)
-            .format("DD MMMM YYYY, h:mm uur")}`}
+            .format("DD MM YY, h:mm uur")}`}
         </Link>
       </td>
 
