@@ -10,7 +10,6 @@ import { Navbar } from "react-bootstrap";
 
 export default function NavigationComponent() {
   const token = useSelector(selectToken);
-  const renderControlsLoggedIn = token ? <LoggedIn /> : null;
 
   return (
     <Navbar href="#home" collapseOnSelect bg="light" expand="lg">
@@ -21,7 +20,7 @@ export default function NavigationComponent() {
         <>
           <Navbar.Toggle aria-controls="responsive-navbar-nav" />
           <Navbar.Collapse id="responsive-navbar-nav">
-            {renderControlsLoggedIn}
+            <LoggedIn />
           </Navbar.Collapse>
         </>
       )}

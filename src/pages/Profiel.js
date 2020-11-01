@@ -65,7 +65,7 @@ export default function Profiel() {
   }
 
   return (
-    user && (
+    user.id && (
       <Container>
         <Row className="justify-content-md-center mt-5">
           <Col xs lg={6}>
