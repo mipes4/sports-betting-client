@@ -27,6 +27,9 @@ export default function LoggedIn() {
           id="collasible-nav-dropdown"
         >
           <NavDropdown.Item href="/profiel">Profiel</NavDropdown.Item>
+          <NavDropdown.Item href="/voorspellingen">
+            Voorspellingen
+          </NavDropdown.Item>
           {user.admin && (
             <NavDropdown.Item href="/admin">Admin</NavDropdown.Item>
           )}
@@ -40,7 +43,6 @@ export default function LoggedIn() {
     <>
       <Nav variant="pills" className="mr-auto">
         <NavbarItem path="/" exact={true} linkText="Home" />
-        <NavbarItem path="/voorspellingen" linkText="Voorspellingen" />
         <NavbarItem path="/regels" linkText="Regels" />
       </Nav>
       {renderDropDown()}
