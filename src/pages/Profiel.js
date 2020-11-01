@@ -9,7 +9,7 @@ import { selectTeams } from "../store/configs/selectors";
 // components
 import ClubPreference from "../components/ClubPreference/ClubPreference";
 // styles
-import { Container, Form, Button } from "react-bootstrap";
+import { Container, Row, Col, Form, Button } from "react-bootstrap";
 
 export default function Profiel() {
   const history = useHistory();
@@ -67,104 +67,108 @@ export default function Profiel() {
   return (
     user && (
       <Container>
-        <Form onSubmit={submitForm}>
-          <Form.Group controlId="formBasicUserName">
-            <Form.Label>Gebruikersnaam</Form.Label>
-            <Form.Control
-              defaultValue={user.username}
-              onChange={(event) => setUsername(event.target.value)}
-              type="text"
-              placeholder="Gebruikersnaam"
-              required
-            />
-          </Form.Group>
+        <Row className="justify-content-md-center mt-5">
+          <Col xs lg={6}>
+            <Form onSubmit={submitForm}>
+              <Form.Group controlId="formBasicUserName">
+                <Form.Label>Gebruikersnaam</Form.Label>
+                <Form.Control
+                  defaultValue={user.username}
+                  onChange={(event) => setUsername(event.target.value)}
+                  type="text"
+                  placeholder="Gebruikersnaam"
+                  required
+                />
+              </Form.Group>
 
-          <Form.Group controlId="formBasicFirstName">
-            <Form.Label>Voornaam</Form.Label>
-            <Form.Control
-              defaultValue={user.firstName}
-              onChange={(event) => setFirstName(event.target.value)}
-              type="text"
-              placeholder="Voornaam"
-              required
-            />
-          </Form.Group>
+              <Form.Group controlId="formBasicFirstName">
+                <Form.Label>Voornaam</Form.Label>
+                <Form.Control
+                  defaultValue={user.firstName}
+                  onChange={(event) => setFirstName(event.target.value)}
+                  type="text"
+                  placeholder="Voornaam"
+                  required
+                />
+              </Form.Group>
 
-          <Form.Group controlId="formBasicLastName">
-            <Form.Label>Achternaam</Form.Label>
-            <Form.Control
-              defaultValue={user.lastName}
-              onChange={(event) => setLastName(event.target.value)}
-              type="text"
-              placeholder="Achternaam"
-              required
-            />
-          </Form.Group>
+              <Form.Group controlId="formBasicLastName">
+                <Form.Label>Achternaam</Form.Label>
+                <Form.Control
+                  defaultValue={user.lastName}
+                  onChange={(event) => setLastName(event.target.value)}
+                  type="text"
+                  placeholder="Achternaam"
+                  required
+                />
+              </Form.Group>
 
-          <Form.Group controlId="formBasicTelNumber">
-            <Form.Label>Telefoonnummer</Form.Label>
-            <Form.Control
-              defaultValue={user.phoneNumber}
-              onChange={(event) => setPhoneNumber(event.target.value)}
-              type="text"
-              placeholder="Telefoonnummer"
-              required
-            />
-          </Form.Group>
+              <Form.Group controlId="formBasicTelNumber">
+                <Form.Label>Telefoonnummer</Form.Label>
+                <Form.Control
+                  defaultValue={user.phoneNumber}
+                  onChange={(event) => setPhoneNumber(event.target.value)}
+                  type="text"
+                  placeholder="Telefoonnummer"
+                  required
+                />
+              </Form.Group>
 
-          <Form.Group controlId="formBasicEmail">
-            <Form.Label>Emailadres</Form.Label>
-            <Form.Control
-              defaultValue={user.email}
-              onChange={(event) => setEmail(event.target.value)}
-              type="text"
-              placeholder="Emailadres"
-              required
-            />
-          </Form.Group>
+              <Form.Group controlId="formBasicEmail">
+                <Form.Label>Emailadres</Form.Label>
+                <Form.Control
+                  defaultValue={user.email}
+                  onChange={(event) => setEmail(event.target.value)}
+                  type="text"
+                  placeholder="Emailadres"
+                  required
+                />
+              </Form.Group>
 
-          <ClubPreference
-            defaultVal={user.team.name}
-            teams={teams}
-            addTeam={(name) => setClub(name)}
-          />
+              <ClubPreference
+                defaultVal={user.team.name}
+                teams={teams}
+                addTeam={(name) => setClub(name)}
+              />
 
-          <Form.Group controlId="formBasicPassword">
-            <Form.Label>Password</Form.Label>
-            <Form.Control
-              defaultValue=""
-              onChange={(event) => setPassword(event.target.value)}
-              type="password"
-              placeholder="Password"
-              required
-            />
-          </Form.Group>
+              <Form.Group controlId="formBasicPassword">
+                <Form.Label>Password</Form.Label>
+                <Form.Control
+                  defaultValue=""
+                  onChange={(event) => setPassword(event.target.value)}
+                  type="password"
+                  placeholder="Password"
+                  required
+                />
+              </Form.Group>
 
-          <Form.Group controlId="formBasicCheckbox1">
-            <Form.Check
-              inline
-              label="Totaaltoto"
-              checked={totaalToto}
-              type="checkbox"
-              defaultValue={user.totaalToto}
-              onChange={() => setTotaalToto(!totaalToto)}
-            />
-          </Form.Group>
-          <Form.Group controlId="formBasicCheckbox2">
-            <Form.Check
-              inline
-              label="Admin"
-              checked={isAdmin}
-              type="checkbox"
-              defaultValue={user.isAdmin}
-              onChange={() => setIsAdmin(!isAdmin)}
-            />
-          </Form.Group>
+              <Form.Group controlId="formBasicCheckbox1">
+                <Form.Check
+                  inline
+                  label="Totaaltoto"
+                  checked={totaalToto}
+                  type="checkbox"
+                  defaultValue={user.totaalToto}
+                  onChange={() => setTotaalToto(!totaalToto)}
+                />
+              </Form.Group>
+              <Form.Group controlId="formBasicCheckbox2">
+                <Form.Check
+                  inline
+                  label="Admin"
+                  checked={isAdmin}
+                  type="checkbox"
+                  defaultValue={user.isAdmin}
+                  onChange={() => setIsAdmin(!isAdmin)}
+                />
+              </Form.Group>
 
-          <Button variant="primary" type="submit">
-            Sla mijn profiel op
-          </Button>
-        </Form>
+              <Button variant="primary" type="submit">
+                Sla mijn profiel op
+              </Button>
+            </Form>
+          </Col>
+        </Row>
       </Container>
     )
   );

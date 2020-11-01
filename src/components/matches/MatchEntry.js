@@ -3,8 +3,8 @@ import { Link } from "react-router-dom";
 import moment from "moment";
 import { useDispatch, useSelector } from "react-redux";
 // assets
-import logoDummy from "../images/logoDummy.png";
-import { ReactComponent as Clock } from "../images/clock.svg";
+import logoDummy from "../../assets/logoDummy.png";
+import { ReactComponent as Clock } from "../../assets/clock.svg";
 // redux
 import {
   postPrediction,
