@@ -15,7 +15,7 @@ import { selectUser } from "../../store/user/selectors";
 // styles
 import { Button, Col, Form } from "react-bootstrap";
 
-export default function MatchEntry(props) {
+export default function MatchEntry({ match, color }) {
   const dispatch = useDispatch();
   const [goalsHomeTeam, setGoalsHomeTeam] = useState();
   const [goalsAwayTeam, setGoalsAwayTeam] = useState();
@@ -24,55 +24,55 @@ export default function MatchEntry(props) {
 
   const savePrediction = (event) => {
     event.preventDefault();
-    if (props.predictions.length === 0) {
-      dispatch(
-        postPrediction(
-          goalsHomeTeam,
-          goalsAwayTeam,
-          user.id,
-          1,
-          props.fixtureId
-        )
-      );
-    } else {
-      dispatch(changePrediction(goalsHomeTeam, goalsAwayTeam, user.id));
-    }
+    console.log("save");
+    // if (getMatchedCSSRules.predictions.length === 0) {
+    //   dispatch(
+    //     postPrediction(
+    //       goalsHomeTeam,
+    //       goalsAwayTeam,
+    //       user.id,
+    //       1,
+    //       match.fixtureId
+    //     )
+    //   );
+    // } else {
+    //   dispatch(changePrediction(goalsHomeTeam, goalsAwayTeam, user.id));
+    // }
   };
 
-  const predGoalsHomeTeam = props.predictions.map((prediction) => {
+  const predGoalsHomeTeam = match.predictions.map((prediction) => {
     return prediction.predGoalsHomeTeam;
   });
 
-  const predGoalsAwayTeam = props.predictions.map((prediction) => {
+  const predGoalsAwayTeam = match.predictions.map((prediction) => {
     return prediction.predGoalsAwayTeam;
   });
 
-  if (!scores[0])
-    return (
-      <tr>
-        <td>Loading...</td>
-      </tr>
-    );
+  // if (!scores[0])
+  //   return (
+  //     <tr>
+  //       <td>Loading...</td>
+  //     </tr>
+  //   );
 
   return (
-    <tr style={{ color: props.color }} id={props.gameId}>
-      <td>{props.gameId}</td>
+    <tr id={match.gameId} style={{ color: color, fontWeight: "bold" }}>
+      <td>{match.gameId}</td>
 
       <td style={{ verticalAlign: "middle" }}>
         <Link
+          style={{ color: color, fontWeight: "bold" }}
           to={{
-            pathname: `/wedstrijd/${props.fixtureId}`,
-            aboutProps: {
-              eventTimestamp: props.eventTimestamp,
-              round: props.round,
-              homeTeamGoals: props.goalsHomeTeam,
-              awayTeamGoals: props.goalsAwayTeam,
+            pathname: `/wedstrijd/${match.fixtureId}`,
+            aboutmatch: {
+              eventTimeStamp: match.eventTimeStamp,
+              round: match.round.match(/\d+/)[0],
+              homeTeamGoals: match.goalsHomeTeam,
+              awayTeamGoals: match.goalsAwayTeam,
             },
           }}
         >
-          {`${props.round} | ${moment
-            .unix(props.eventTimestamp)
-            .format("DD MM YY, h:mm uur")}`}
+          {`${moment.unix(match.eventTimeStamp).format("DD MMM YY - hh:mm")}`}
         </Link>
       </td>
 
@@ -80,16 +80,18 @@ export default function MatchEntry(props) {
         <img
           style={{ width: "20px", height: "20px" }}
           src={
-            props.homeTeamLogo === "Not available in demo"
+            match.homeTeamLogo === "Not available in demo"
               ? logoDummy
-              : props.homeTeamLogo
+              : match.homeTeamLogo
           }
-          alt={`logo ${props.homeTeamName}`}
+          alt={`logo ${match.homeTeamName}`}
         />
       </td>
+
       <td style={{ textAlign: "right", verticalAlign: "middle" }}>
-        {props.homeTeamName}
+        {match.homeTeamName}
       </td>
+
       <td>
         <Form>
           <Form.Row>
@@ -97,13 +99,13 @@ export default function MatchEntry(props) {
               <div style={{ display: "flex", justifyContent: "center" }}>
                 <Form.Control
                   size="sm"
-                  style={{ width: "60px" }}
+                  style={{ width: "30px" }}
                   type="number"
                   min="0"
                   defaultValue={predGoalsHomeTeam[0]}
                   onChange={(event) => setGoalsHomeTeam(event.target.value)}
                   disabled={
-                    Math.floor(Date.now() / 1000) > props.eventTimestamp - 300
+                    Math.floor(Date.now() / 1000) > match.eventTimestamp - 300
                       ? true
                       : false
                   }
@@ -111,13 +113,13 @@ export default function MatchEntry(props) {
                 <span>&nbsp;&nbsp;-&nbsp;&nbsp;</span>
                 <Form.Control
                   size="sm"
-                  style={{ width: "60px" }}
+                  style={{ width: "30px" }}
                   type="number"
                   min="0"
                   defaultValue={predGoalsAwayTeam[0]}
                   onChange={(event) => setGoalsAwayTeam(event.target.value)}
                   disabled={
-                    Math.floor(Date.now() / 1000) > props.eventTimestamp - 300
+                    Math.floor(Date.now() / 1000) > match.eventTimestamp - 300
                       ? true
                       : false
                   }
@@ -127,47 +129,56 @@ export default function MatchEntry(props) {
           </Form.Row>
         </Form>
       </td>
-      <td style={{ verticalAlign: "middle" }}>{props.awayTeamName}</td>
+
+      <td style={{ verticalAlign: "middle" }}>{match.awayTeamName}</td>
+
       <td style={{ textAlign: "center", verticalAlign: "middle" }}>
         <img
           style={{ width: "20px", height: "20px" }}
           src={
-            props.awayTeamLogo === "Not available in demo"
+            match.awayTeamLogo === "Not available in demo"
               ? logoDummy
-              : props.awayTeamLogo
+              : match.awayTeamLogo
           }
           alt="logo of team"
         />
       </td>
+
       <td style={{ textAlign: "center", verticalAlign: "middle" }}>
-        <Button type="submit" onClick={savePrediction}>
+        <Button
+          type="submit"
+          onClick={savePrediction}
+          className="btn-sm"
+          variant="light"
+        >
           Save
         </Button>
       </td>
+
       <td style={{ verticalAlign: "middle" }}>
-        <Clock /> &nbsp;&nbsp;
-        {Math.floor(Date.now() / 1000) > props.eventTimestamp - 300
+        <Clock className="mr-2 ml-5" />
+        {Math.floor(Date.now() / 1000) > match.eventTimeStamp - 300
           ? "Voorspellingen gesloten"
-          : moment.unix(props.eventTimestamp).startOf("minute").fromNow()}
+          : moment.unix(match.eventTimeStamp).startOf("minute").fromNow()}
       </td>
 
-      {props.status === "CANC" ? (
+      {match.status === "CANC" ? (
         <td style={{ verticalAlign: "middle" }}>Geannuleerd</td>
       ) : (
         <td
           style={{ fontSize: 14, verticalAlign: "middle", fontWeight: "bold" }}
         >
-          {props.goalsHomeTeam === null ||
-          props.status === "CANC" ||
+          {match.goalsHomeTeam === null ||
+          match.status === "CANC" ||
           predGoalsAwayTeam[0] === undefined
             ? ""
-            : `Score: ${props.predictions.totalScore}`}
+            : `Score: ${match.predictions.totalScore}`}
         </td>
       )}
       <td style={{ verticalAlign: "middle" }}>
-        {props.goalsHomeTeam === null
+        {match.goalsHomeTeam === null
           ? ""
-          : `Uitslag: ${props.goalsHomeTeam} - ${props.goalsAwayTeam} `}
+          : `Uitslag: ${match.goalsHomeTeam} - ${match.goalsAwayTeam} `}
       </td>
     </tr>
   );

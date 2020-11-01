@@ -22,9 +22,5 @@ export default function Home() {
     dispatch(fetchRounds());
   }, [dispatch]);
 
-  return (
-    <div>
-      <LeaderBoardRoundCard />
-    </div>
-  );
+  return <div>{/* <LeaderBoardRoundCard /> */}</div>;
 }
