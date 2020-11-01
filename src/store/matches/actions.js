@@ -12,15 +12,13 @@ export function currentRoundData(data) {
   return { type: CURRENT_ROUND_MATCHES, payload: data };
 }
 
-export function fetchMatchesAndPredictions() {
-  return async (dispatch, getState) => {
-    const userId = getState().user.id;
-    try {
-      const response = await Axios.get(`${apiUrl}/matches/user/${userId}`);
-      dispatch(dataFullyFetched(response.data));
-    } catch (e) {}
-  };
-}
+export const fetchMatchesAndPredictions = () => async (dispatch, getState) => {
+  const userId = getState().user.id;
+  try {
+    const response = await Axios.get(`${apiUrl}/matches/user/${userId}`);
+    dispatch(dataFullyFetched(response.data));
+  } catch (e) {}
+};
 
 export function fetchCurRoundMatchesAndPredictions(userId, roundNbr) {
   return async (dispatch, getState) => {

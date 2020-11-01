@@ -15,7 +15,7 @@ import { selectUser } from "../../store/user/selectors";
 // styles
 import { Button, Col, Form } from "react-bootstrap";
 
-export default function MatchEntry({ match, color }) {
+export default function MatchEntry({ match }) {
   const dispatch = useDispatch();
   const [goalsHomeTeam, setGoalsHomeTeam] = useState();
   const [goalsAwayTeam, setGoalsAwayTeam] = useState();
@@ -56,12 +56,10 @@ export default function MatchEntry({ match, color }) {
   //   );
 
   return (
-    <tr id={match.gameId} style={{ color: color, fontWeight: "bold" }}>
-      <td>{match.gameId}</td>
-
+    <tr id={match.gameId} style={{ fontWeight: "bold" }}>
       <td style={{ verticalAlign: "middle" }}>
         <Link
-          style={{ color: color, fontWeight: "bold" }}
+          style={{ fontWeight: "bold" }}
           to={{
             pathname: `/wedstrijd/${match.fixtureId}`,
             aboutmatch: {

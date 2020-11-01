@@ -15,53 +15,69 @@ export default function TableMatches() {
 
   useEffect(() => {
     dispatch(fetchMatchesAndPredictions());
-  });
-
-  const compareMatches = (matchA, matchB) => {
-    return matchA.eventTimeStamp - matchB.eventTimeStamp;
-  };
+  }, []);
 
   if (!matches) return dispatch(appLoading());
 
+  const compareMatches = (matchA, matchB) =>
+    matchA.eventTimeStamp - matchB.eventTimeStamp;
+
   const sortedMatches = [...matches].sort(compareMatches);
 
-  const matchesToMatchEntry = sortedMatches.map((match, i) => {
-    match.gameId = i % 27 === 0 && i / 27 + 1 < 12 ? i / 27 + 1 : "";
-    // const newColor = i % 27 === 0 ? "red" : "white";
-    const rowColor = match.round.match(/\d+/)[0] % 2 === 0 ? "blue" : "black";
-    return (
-      <MatchEntry
-        key={match.id}
-        match={match}
-        color={rowColor}
-        // fixtureId={match.id}
-        // homeTeamId={match.homeTeamId}
-        // homeTeamName={match.homeTeamName}
-        // homeTeamLogo={match.homeTeamLogo}
-        // goalsHomeTeam={match.goalsHomeTeam}
-        // awayTeamId={match.awayTeamId}
-        // awayTeamName={match.awayTeamName}
-        // awayTeamLogo={match.awayTeamLogo}
-        // goalsAwayTeam={match.goalsAwayTeam}
-        // eventTimestamp={match.eventTimeStamp}
-        // round={match.round.match(/\d+/)[0]}
-        // status={match.status}
-        // predictions={match.predictions}
-        // gameId={match.gameId}
-      />
-    );
-  });
+  const groupArr = (data, n) => {
+    var group = [];
+    for (var i = 0, j = 0; i < data.length; i++) {
+      if (i >= n && i % n === 0) j++;
+      group[j] = group[j] || [];
+      group[j].push(data[i]);
+    }
+    return group;
+  };
 
-  return (
-    <Table
-      style={{ fontSize: 12, textAlign: "left", verticalAlign: "middle" }}
-      striped
-      hover
-      variant="light"
-      size="sm"
-      responsive="xl"
-    >
-      <tbody>{matchesToMatchEntry}</tbody>
-    </Table>
+  const displayTablePerGroup = () =>
+    groupArr(sortedMatches, 9).map((arr, i) => {
+      return (
+        <Table
+          key={i}
+          style={{ fontSize: 12, textAlign: "left", verticalAlign: "middle" }}
+          striped
+          hover
+          variant="light"
+          size="sm"
+          responsive="xl"
+        >
+          <thead>{getTableHead(i * 9)}</thead>
+          <tbody>
+            {arr.map((match, j) => (
+              <MatchEntry key={j} match={match} />
+            ))}
+          </tbody>
+        </Table>
+      );
+    });
+
+  const getTableHead = (i) => (
+    <tr>
+      <th>
+        <span>
+          Game -{" "}
+          {i >= 27 * Math.floor(sortedMatches.length / 27)
+            ? Math.floor(i / 27)
+            : Math.floor(i / 27) + 1}
+        </span>
+        <span className="ml-5">
+          Round -{" "}
+          {i >= 27 * Math.floor(sortedMatches.length / 27)
+            ? 4
+            : i % 27 < 9
+            ? 1
+            : i % 27 < 18
+            ? 2
+            : 3}
+        </span>
+      </th>
+    </tr>
   );
+
+  return <>{displayTablePerGroup()}</>;
 }
